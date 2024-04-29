@@ -1,3 +1,7 @@
 # Spiderman Trivia Inc
 
-TODO
+Description
+
+## Setup
+
+- run `npm install` for Eslint and Prettier Setup
