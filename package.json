@@ -1,0 +1,27 @@
+{
+  "name": "spiderman-trivia-inc",
+  "version": "1.0.0",
+  "description": "Description",
+  "main": "js/index.js",
+  "scripts": {
+    "start": "node --watch server/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@eslint/js": "^9.1.1",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-import": "^2.29.1",
+    "globals": "^15.1.0"
+  },
+  "dependencies": {
+    "eslint-config-node": "^4.1.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "prettier": "^3.2.5"
+  }
+}
