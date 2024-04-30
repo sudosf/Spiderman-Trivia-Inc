@@ -9,6 +9,7 @@ router.post('/', async (req, res) => {
         const userId = 1;
         const attemptData = req.body;
         attemptData.user_id = userId;
+        attemptData.timestamp = new Date();
         const attempt = await attemptService.createAttempt(req.body);
         sendResponse(res, 201, attempt);
     } catch (error) {

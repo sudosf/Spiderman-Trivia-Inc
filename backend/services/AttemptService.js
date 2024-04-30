@@ -33,9 +33,6 @@ class AttemptService {
         if(!attemptData.score){
             throw new BadRequestError("score cannot be undefined");
         }
-        if(!attemptData.timestamp){
-            throw new BadRequestError("timestamp cannot be undefined");
-        }
         if(attemptData.score < 0 || attemptData.score > 10){
             throw new InvalidOperationError("score cannot be lower than zero or higher than 10");
         }
