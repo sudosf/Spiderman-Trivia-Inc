@@ -23,10 +23,16 @@ class InvalidOperationError extends BaseError {
         super('InvalidOperationError', 409, message);
     }
 }
+class BadRequestError extends BaseError {
+    constructor(message) {
+        super('BadRequestError', 400, message);
+    }
+}
 
 // Export all custom errors
 module.exports = {
     NotFoundError,
     ValidationError,
     InvalidOperationError,
+    BadRequestError
 };

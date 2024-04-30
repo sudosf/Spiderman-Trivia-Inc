@@ -17,7 +17,7 @@ function sendResponse(res, statusCode, data, message = null) {
 // Handle error responses
 function sendError(res, error) {
     const response = {
-        status: 'error',
+        status: error.name || 'error',
         message: error.message|| 'Internal server error'
     };
     res.status(error.statusCode || 500).json(response);
