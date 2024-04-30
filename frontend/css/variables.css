@@ -1,0 +1,17 @@
+:root {
+    --text-color: #333;
+    --bg-color: #fff;  
+  }
+  
+  .dark-mode {
+    --text-color: #eee;
+    --bg-color: #333; 
+  }
+
+
+@media (prefers-color-scheme: dark) {
+    :root {
+      --text-color: #eee;
+      --bg-color: #333;
+    }
+  }
