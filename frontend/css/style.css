@@ -2,7 +2,7 @@
     --text-color: #0A0707;
     --bg-color: #FDFCFC;
     --text-correct-color: #177915;
-    --primary-color:#903634;
+    --primary-color: #903634;
     --secondary-color: #C99E9E;
     --accent-color : #7DD0F3;
     --card-bg-color: #E2E8F0;
@@ -13,7 +13,7 @@
     --text-color: #DBF6FD;
     --bg-color: #181B1C;
     --text-correct-color: #177915;
-    --primary-color:#9E092A;
+    --primary-color: #9E092A;
     --secondary-color: #434A5A;
     --accent-color : #A5CAD7;
     --card-bg-color: #202528;
@@ -35,6 +35,6 @@
   }
 */
 body {
-    color: var(--text);
+    color: var(--text-color);
     background-color: var(--bg-color);
   }
