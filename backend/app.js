@@ -6,6 +6,7 @@ const logger = require('./config/logger');
 
 // routes
 const usersRoutes = require('./routes/UserRoutes');
+const subjectsRoutes = require('./routes/SubjectRoutes');
 
 const app = express();
 
@@ -15,6 +16,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use('/api/users', usersRoutes);
+app.use('/api/subjects', subjectsRoutes);
 
 // Error handling middleware, should always be after the routes
 app.use((err, req, res, next) => {
