@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const quizService = require('../services/QuizService');
-const { sendResponse, sendError } = require('../utils/responseHandler');
+const { sendResponse, sendError } = require('../middleware/responseHandler');
 
 // Start a quiz for a specific subject
 router.get('/start/:subjectId', async (req, res) => {

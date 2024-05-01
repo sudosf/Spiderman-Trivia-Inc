@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const attemptService = require('../services/AttemptService');
-const { sendResponse, sendError } = require('../utils/responseHandler');
+const { sendResponse, sendError } = require('../middleware/responseHandler');
 
 // Create a new attempt
 router.post('/', async (req, res) => {

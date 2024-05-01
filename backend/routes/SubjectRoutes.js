@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const subjectService = require('../services/SubjectService');
-const { sendResponse, sendError } = require('../utils/responseHandler');
+const { sendResponse, sendError } = require('../middleware/responseHandler');
 
 // Get all subjects
 router.get('/', async (req, res) => {

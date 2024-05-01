@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const userService = require('../services/UserService');
-const { sendResponse, sendError } = require('../utils/responseHandler');
+const { sendResponse, sendError } = require('../middleware/responseHandler');
 
 // Get authenticated user
 router.get('/me', async (req, res) => {
