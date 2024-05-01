@@ -1,28 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 :root {
-    --text-color: #0A0707;
-    --bg-color: #FDFCFC;
-    --text-correct-color: #177915;
-    --primary-color: #903634;
-    --secondary-color: #C99E9E;
-    --accent-color : #7DD0F3;
-    --card-bg-color: #E2E8F0;
-    --select-color : #7DD0F3;
+  --text-color: #0a0707;
+  --bg-color: #fdfcfc;
+  --text-correct-color: #177915;
+  --primary-color: #903634;
+  --secondary-color: #c99e9e;
+  --accent-color: #7dd0f3;
+  --card-bg-color: #e2e8f0;
+  --select-color: #7dd0f3;
+}
+
+.dark-mode {
+  --text-color: #dbf6fd;
+  --bg-color: #181b1c;
+  --primary-color: #9e092a;
+  --secondary-color: #434a5a;
+  --accent-color: #a5cad7;
+  --card-bg-color: #202528;
+}
+
+html, body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  font-family: 'Comic Neue', cursive, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  text-decoration: none;
+}
+
+h1 {
+  font-size: 4rem;
+  font-weight: 700;
+}
+
+p {
+  font-weight: bold;
+}
+
+button {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  border: none;
+  border-radius: 1.3rem;
+  margin: auto 0;
+  cursor: pointer;
+  background-color: var(--card-bg-color);
+}
+
+button:hover {
+  background-color: var(--accent-color);
+}
+
+.btn-long {
+  padding: 0.7rem 10rem 0.7rem 1rem;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem 2rem;
+
+  aside {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
   }
-  
-  .dark-mode {
-    --text-color: #DBF6FD;
-    --bg-color: #181B1C;
-    --text-correct-color: #177915;
-    --primary-color: #9E092A;
-    --secondary-color: #434A5A;
-    --accent-color : #A5CAD7;
-    --card-bg-color: #202528;
-    --select-color : #7DD0F3;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin: 2rem 2rem;
+
+  section {
+    max-width: 30rem;
   }
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  margin-top: auto;
+  background-color: var(--card-bg-color);
+}
 
 /**
 @media (prefers-color-scheme: dark) {
-    :root {
+  :root {
     --text-color: #DBF6FD;
     --bg-color: #181B1C;
     --text-correct: #177915;
@@ -34,7 +113,3 @@
     }
   }
 */
-body {
-    color: var(--text-color);
-    background-color: var(--bg-color);
-  }
