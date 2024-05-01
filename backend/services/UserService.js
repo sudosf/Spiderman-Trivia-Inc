@@ -5,9 +5,20 @@ class UserService {
     async getUserById(id) {
         const user = await User.findByPk(id);
         if (!user) {
-            throw new NotFoundError("User not found");
+            throw new NotFoundError(`User with id ${id} not found`);
         }
         return user;
+    }
+    async findOrCreateUser(githubData) {
+        const user = await User.findOne({ where: { github_id: githubData.id.toString() } });
+        if (user) {
+            return user;
+        } else {
+            return await User.create({
+                username: githubData.login,
+                github_id: githubData.id.toString()
+            });
+        }
     }
 }
 

@@ -6,7 +6,7 @@ const { sendResponse, sendError } = require('../middleware/responseHandler');
 // Create a new attempt
 router.post('/', async (req, res) => {
     try {
-        const userId = 1;
+        const userId = req.user.user_id;
         const attemptData = req.body;
         attemptData.user_id = userId;
         attemptData.timestamp = new Date();
@@ -30,7 +30,7 @@ router.get('/', async (req, res) => {
 // Get attempts for authenticated user
 router.get('/me', async (req, res) => {
     try {
-        const userId = 1; // the userId will be pulled from jwt
+        const userId = req.user.user_id;
         const attempts = await attemptService.getAttemptsByUserId(userId);
         sendResponse(res, 200, attempts);
     } catch (error) {

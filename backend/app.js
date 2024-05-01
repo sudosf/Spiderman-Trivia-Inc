@@ -9,6 +9,9 @@ const usersRoutes = require('./routes/UserRoutes');
 const subjectsRoutes = require('./routes/SubjectRoutes');
 const attemptsRoutes = require('./routes/AttemptRoutes');
 const quizRoutes = require('./routes/QuizRoutes');
+const authRoutes = require('./routes/AuthRoutes');
+
+const verifyToken = require('./middleware/jwtMiddleware');
 
 const app = express();
 
@@ -17,10 +20,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use('/api/users', usersRoutes);
-app.use('/api/subjects', subjectsRoutes);
-app.use('/api/attempts', attemptsRoutes);
-app.use('/api/quiz', quizRoutes);
+app.use('/api/auth', authRoutes);
+app.use('/api/users', verifyToken, usersRoutes);
+app.use('/api/subjects', verifyToken, subjectsRoutes);
+app.use('/api/attempts', verifyToken, attemptsRoutes);
+app.use('/api/quiz', verifyToken, quizRoutes);
 
 sequelize.sync({ force: false }).then(() => {
     logger.info('Database connected and models synchronized');
