@@ -23,6 +23,10 @@ jobs:
       run: cp database/flyway/flyway.conf flyway.conf
 
     - name: Run Flyway Migration
+      env:
+        DB_URL: ${{ secrets.DB_URL }}
+        DB_USERNAME: ${{ secrets.DB_USER }}
+        DB_PASSWORD: ${{ secrets.DB_USER_PASSWORD }}
       run: |
         sudo snap install flyway
-        flyway migrate -configFiles=database/flyway/flyway.conf
+        flyway migrate -configFiles=flyway.conf -url=$DB_URL -user=$DB_USERNAME -password=$DB_PASSWORD
