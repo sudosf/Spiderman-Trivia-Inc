@@ -25,19 +25,12 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
 
-    - name: Print Secrets
-      run: |
-        echo "DB_URL: ${{ secrets.DB_URL }}"
-        echo "DB_USERNAME: ${{ secrets.DB_USER }}"
-        echo "DB_PASSWORD: ${{ secrets.DB_USER_PASSWORD }}"
-
     - name: Generate flyway config file
       run: |
         echo "flyway.url=${{ secrets.DB_URL }}" >> flyway.generated.conf
         echo "flyway.user=${{ secrets.DB_USER }}" >> flyway.generated.conf
         echo "flyway.password=${{ secrets.DB_USER_PASSWORD }}" >> flyway.generated.conf
         cat database/flyway/flyway.conf >> flyway.generated.conf
-        cat flyway.generated.conf  # Print contents of the generated config file
 
     - name: Run Flyway Migration
       run: |
