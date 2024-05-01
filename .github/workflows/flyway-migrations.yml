@@ -1,0 +1,32 @@
+name: Database Migration with Flyway
+
+on:
+  push:
+    branches: 
+      - "main"
+      - "feature/arinaho/database-flyway-cicd"
+    paths:
+      - 'database/scripts/**'
+
+  workflow_dispatch:
+
+jobs:
+  migrate-database:
+    name: Run Flyway Migration
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Copy flyway config file
+      run: cp database/flyway/flyway.conf flyway.conf
+
+    - name: Run Flyway Migration
+      env:
+        DB_URL: ${{ secrets.DB_URL }}
+        DB_USERNAME: ${{ secrets.DB_USER }}
+        DB_PASSWORD: ${{ secrets.DB_USER_PASSWORD }}
+      run: |
+        sudo snap install flyway
+        flyway migrate -configFiles=flyway.conf -url=$DB_URL -user=$DB_USERNAME -password=$DB_PASSWORD
