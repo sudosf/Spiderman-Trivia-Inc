@@ -28,11 +28,17 @@ class BadRequestError extends BaseError {
         super('BadRequestError', 400, message);
     }
 }
+class UnauthorizedError extends BaseError {
+    constructor(message) {
+        super('UnauthorizedError', 401, message);
+    }
+}
 
 // Export all custom errors
 module.exports = {
     NotFoundError,
     ValidationError,
     InvalidOperationError,
-    BadRequestError
+    BadRequestError,
+    UnauthorizedError
 };
