@@ -45,14 +45,6 @@ h1 {
   font-weight: 700;
 }
 
-h2 {
-
-}
-
-h3 {
-
-}
-
 p {
   font-weight: bold;
 }
@@ -76,10 +68,6 @@ button:hover {
   padding: 0.7rem 10rem 0.7rem 1rem;
 }
 
-.btn-short {
-
-}
-
 header {
   display: flex;
   justify-content: space-between;
@@ -101,10 +89,6 @@ main {
   section {
     max-width: 30rem;
   }
-
-  .btn-sign-in {
-
-  }  
 }
 
 footer {
