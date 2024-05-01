@@ -8,6 +8,7 @@ on:
     paths:
       - 'database/scripts/**'
       - 'database/flyway/**'
+      - '.gihub/workflows/**'
 
   workflow_dispatch:
 
@@ -25,14 +26,14 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
 
-    - name: Copy flyway config file and add secrets
+    - name: Generate flyway config file with secrets
       run: |
-        cp database/flyway/flyway.conf flyway.conf
-        echo "flyway.url=${DB_URL}" >> flyway.conf
-        echo "flyway.user=${DB_USERNAME}" >> flyway.conf
-        echo "flyway.password=${DB_PASSWORD}" >> flyway.conf
+        echo "flyway.url=${DB_URL}" >> flyway.generated.conf
+        echo "flyway.user=${DB_USERNAME}" >> flyway.generated.conf
+        echo "flyway.password=${DB_PASSWORD}" >> flyway.generated.conf
+        cat database/flyway/flyway.conf >> flyway.generated.conf
 
     - name: Run Flyway Migration
       run: |
         sudo snap install flyway
-        flyway migrate -configFiles=flyway.conf
+        flyway migrate -configFiles=flyway.generated.conf
