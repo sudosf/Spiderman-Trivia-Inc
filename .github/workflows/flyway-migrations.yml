@@ -7,6 +7,7 @@ on:
       - "feature/arinaho/database-flyway-cicd"
     paths:
       - 'database/scripts/**'
+      - 'database/flyway/**'
 
   workflow_dispatch:
 
@@ -15,18 +16,23 @@ jobs:
     name: Run Flyway Migration
     runs-on: ubuntu-latest
 
+    env:
+      DB_URL: ${{ secrets.DB_URL }}
+      DB_USERNAME: ${{ secrets.DB_USER }}
+      DB_PASSWORD: ${{ secrets.DB_USER_PASSWORD }}
+
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
 
-    - name: Copy flyway config file
-      run: cp database/flyway/flyway.conf flyway.conf
+    - name: Generate flyway config file
+      run: |
+        echo "flyway.url=${{ secrets.DB_URL }}" >> flyway.generated.conf
+        echo "flyway.user=${{ secrets.DB_USER }}" >> flyway.generated.conf
+        echo "flyway.password=${{ secrets.DB_USER_PASSWORD }}" >> flyway.generated.conf
+        cat database/flyway/flyway.conf >> flyway.generated.conf
 
     - name: Run Flyway Migration
-      env:
-        DB_URL: ${{ secrets.DB_URL }}
-        DB_USERNAME: ${{ secrets.DB_USER }}
-        DB_PASSWORD: ${{ secrets.DB_USER_PASSWORD }}
       run: |
         sudo snap install flyway
-        flyway migrate -configFiles=flyway.conf -url=$DB_URL -user=$DB_USERNAME -password=$DB_PASSWORD
+        flyway migrate -configFiles=flyway.generated.conf
