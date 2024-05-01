@@ -1,3 +1,5 @@
+[![Database Migration with Flyway](https://github.com/Spiderman-Trivia-Inc/Spiderman-Trivia-Inc/actions/workflows/flyway-migrations.yml/badge.svg)](https://github.com/Spiderman-Trivia-Inc/Spiderman-Trivia-Inc/actions/workflows/flyway-migrations.yml)
+
 # Database
 
 ## Script versioning
