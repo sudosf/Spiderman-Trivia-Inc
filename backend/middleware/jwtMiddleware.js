@@ -1,8 +1,9 @@
 const jwt = require('jsonwebtoken');
-const jwtSecret = process.env.JWT_SECRET;
 const { sendError } = require('../middleware/responseHandler');
 const { UnauthorizedError } = require('../utils/errors');
 const logger = require('../config/logger');
+
+const jwtSecret = process.env.JWT_SECRET;
 
 const verifyToken = (req, res, next) => {
     const authHeader = req.headers.authorization;

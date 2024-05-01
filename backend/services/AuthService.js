@@ -7,6 +7,7 @@ const client_id = process.env.GITHUB_CLIENT_ID;
 const client_secret = process.env.GITHUB_CLIENT_SECRET;
 const jwtSecret = process.env.JWT_SECRET;
 const scope = "read:user";
+const tokenTimeLimit = "1h";
 
 if(!client_id){
     logger.error("github client id not set");
@@ -52,7 +53,7 @@ class AuthService {
         const payload = {
             user_id:user.user_id
         };
-        return jwt.sign(payload, jwtSecret, { expiresIn: '1h' });
+        return jwt.sign(payload, jwtSecret, { expiresIn: tokenTimeLimit });
     }
 }
 

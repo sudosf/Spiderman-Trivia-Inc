@@ -25,6 +25,7 @@ class QuizService {
             answer: question.answer 
         }));
     }
+    
     async validateData(subjectId) {
         const subjectExists = await Subject.findByPk(subjectId);
         if (!subjectExists) {
