@@ -13,6 +13,11 @@ router.get('/github/callback', async (req, res) => {
     try {
         const { code } = req.query;
         const tokenData = await authService.exchangeCodeForToken(code);
+        /** I was thinking of sending the access token by having a callback on the frontend
+         * it should take that token and save it to localStorage
+        const url = `http://spiderman-frontend.com/login-success?token=${encodeURIComponent(tokenData.accessToken)}`;
+        res.redirect(url);
+        */
         sendResponse(res, 200, tokenData);
     } catch (error) {
         sendError(res, error);
