@@ -6,10 +6,13 @@
   "bracketSpacing": true,
   "jsxBracketSameLine": false,
   "arrowParens": "always",
+  "proseWrap": "always",
   "tabWidth": 2,
   "useTabs": false,
   "printWidth": 80,
   "endOfLine": "auto",
+  "requireConfig": true,
+  "editor.formatOnSave": true,
   "overrides": [
     {
       "files": "*.json",
