@@ -18,6 +18,7 @@ class AttemptService {
             where: { user_id: userId }
         });
     }
+    
     async validateAttemptData(attemptData) {
         const userId = attemptData.user_id;
         const subjectId = attemptData.subject_id;

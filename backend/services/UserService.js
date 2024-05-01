@@ -9,6 +9,7 @@ class UserService {
         }
         return user;
     }
+    
     async findOrCreateUser(githubData) {
         const user = await User.findOne({ where: { github_id: githubData.id.toString() } });
         if (user) {
