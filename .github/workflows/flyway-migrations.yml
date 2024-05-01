@@ -15,18 +15,29 @@ jobs:
     name: Run Flyway Migration
     runs-on: ubuntu-latest
 
+    env:
+      DB_URL: ${{ secrets.DB_URL }}
+      DB_USERNAME: ${{ secrets.DB_USER }}
+      DB_PASSWORD: ${{ secrets.DB_USER_PASSWORD }}
+
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
 
     - name: Copy flyway config file
-      run: cp database/flyway/flyway.conf flyway.conf
+      run: |
+        cp database/flyway/flyway.conf flyway.conf
+        echo "flyway.url=${DB_URL}" >> flyway.conf
+        echo "flyway.user=${DB_USERNAME}" >> flyway.conf
+        echo "flyway.password=${DB_PASSWORD}" >> flyway.conf
+        cat database/flyway/flyway.conf >> flyway.conf
+
+    - name: Set up JDK
+      uses: actions/setup-java@v2
+      with:
+        java-version: '11'
 
     - name: Run Flyway Migration
-      env:
-        DB_URL: ${{ secrets.DB_URL }}
-        DB_USERNAME: ${{ secrets.DB_USER }}
-        DB_PASSWORD: ${{ secrets.DB_USER_PASSWORD }}
       run: |
         sudo snap install flyway
-        flyway migrate -configFiles=flyway.conf -url=$DB_URL -user=$DB_USERNAME -password=$DB_PASSWORD
+        flyway migrate -configFiles=flyway.conf
