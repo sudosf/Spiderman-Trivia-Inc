@@ -25,18 +25,13 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
 
-    - name: Copy flyway config file
+    - name: Copy flyway config file and add secrets
       run: |
         cp database/flyway/flyway.conf flyway.conf
         echo "flyway.url=${DB_URL}" >> flyway.conf
         echo "flyway.user=${DB_USERNAME}" >> flyway.conf
         echo "flyway.password=${DB_PASSWORD}" >> flyway.conf
         cat database/flyway/flyway.conf >> flyway.conf
-
-    - name: Set up JDK
-      uses: actions/setup-java@v2
-      with:
-        java-version: '11'
 
     - name: Run Flyway Migration
       run: |
