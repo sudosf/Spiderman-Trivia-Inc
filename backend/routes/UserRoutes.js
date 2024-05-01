@@ -6,7 +6,7 @@ const { sendResponse, sendError } = require('../middleware/responseHandler');
 // Get authenticated user
 router.get('/me', async (req, res) => {
     try {
-        const userId = 1; // the userId will be pulled from jwt
+        const userId = req.user.user_id;
         const user = await userService.getUserById(userId);
         sendResponse(res, 200, user);
     } catch (error) {
