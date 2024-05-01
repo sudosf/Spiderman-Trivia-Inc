@@ -31,7 +31,6 @@ jobs:
         echo "flyway.url=${DB_URL}" >> flyway.conf
         echo "flyway.user=${DB_USERNAME}" >> flyway.conf
         echo "flyway.password=${DB_PASSWORD}" >> flyway.conf
-        cat database/flyway/flyway.conf >> flyway.conf
 
     - name: Run Flyway Migration
       run: |
