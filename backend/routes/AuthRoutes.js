@@ -13,11 +13,10 @@ router.get('/github/callback', async (req, res) => {
     try {
         const { code } = req.query;
         const tokenData = await authService.exchangeCodeForToken(code);
-        const token = encodeURIComponent(tokenData.accessToken);
-        const username = 'a';
+        const token = encodeURIComponent(tokenData.access_token);
+        const username = encodeURIComponent(tokenData.username);
         const url = `https://spiderman-trivia-inc.github.io/Spiderman-Trivia-Inc/frontend/callback#token=${token}&username=${username}`;
         res.redirect(url);
-        sendResponse(res, 200, tokenData);
     } catch (error) {
         sendError(res, error);
     }
