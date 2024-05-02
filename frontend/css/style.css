@@ -112,7 +112,7 @@ main {
     justify-content: space-evenly;
     flex: 1;
     gap: 5rem;
-    margin: 3rem 2rem;
+    margin: 3rem 1rem;
 
     section {
         display: flex;
