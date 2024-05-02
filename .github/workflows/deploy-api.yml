@@ -1,0 +1,59 @@
+name: Deploy SpiderMan Trivia API (Backend)
+
+on:
+  push:
+    branches:
+      - main
+      - feat/SPT-29/deploy-api-to-aws
+    paths:
+      - 'backend/**'
+      - '.github/workflows/deploy-api.yml'
+  workflow_dispatch:
+
+jobs:
+  Build-and-Deploy:
+    runs-on: ubuntu-latest
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      BUCKET_NAME: ${{ secrets.BUCKET_NAME }}
+      BACKEND_APP_NAME: ${{ secrets.BACKEND_APP_NAME }}
+      BACKEND_ENV_NAME: ${{ secrets.BACKEND_ENV_NAME }}
+      AWS_REGION: 'eu-west-1'
+      ARTIFACT_NAME: 'spiderman-api.zip'
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Cache node modules
+        uses: actions/cache@v3
+        with:
+          path: backend/node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('backend/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install dependencies
+        run: npm install
+        working-directory: backend
+
+      - name: Package artifact
+        run: |
+          zip -r ${{ env.ARTIFACT_NAME }} .
+        working-directory: backend
+
+      - name: Upload artifact to S3
+        run: |
+          aws s3 cp ${{ env.ARTIFACT_NAME }} s3://${{ env.BUCKET_NAME }}/${{ env.ARTIFACT_NAME }}
+
+      - name: Deploy to Elastic Beanstalk
+        run: |
+          aws elasticbeanstalk create-application-version --application-name ${{ env.BACKEND_APP_NAME }} --version-label ${{ github.run_id }} --source-bundle S3Bucket="${{ env.BUCKET_NAME }}",S3Key="${{ env.ARTIFACT_NAME }}"
+          aws elasticbeanstalk update-environment --application-name ${{ env.BACKEND_APP_NAME }} --environment-name ${{ env.BACKEND_ENV_NAME }} --version-label ${{ github.run_id }}
