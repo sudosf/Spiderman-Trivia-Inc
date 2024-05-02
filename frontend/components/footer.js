@@ -1,17 +1,17 @@
-class Footer extends HTMLElement{
-    connectedCallback(){
-        this.innerHTML=`
-        <section class="footer container">
+class Footer extends HTMLElement {
+  connectedCallback() {
+    this.innerHTML = `
+        <footer>
             <p>
             &copy;
                 ${new Date().getFullYear()}
             SpiderMan Trivia Inc.
             </p>
     
-            <img src="assets/icons/github.svg" alt="">
-        </section>
-        `
-    }
+            <img src='assets/icons/github.svg' alt='github'>
+        </footer>
+        `;
+  }
 }
 
-customElements.define("app-footer",Footer);
+customElements.define('app-footer', Footer);
