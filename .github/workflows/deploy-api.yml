@@ -47,6 +47,7 @@ jobs:
       - name: Package artifact
         run: |
           zip -r ${{ env.ARTIFACT_NAME }} .
+          ls -l
         working-directory: backend
 
       - name: Upload artifact to S3
