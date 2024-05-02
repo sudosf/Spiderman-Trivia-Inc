@@ -8,7 +8,7 @@ class Footer extends HTMLElement{
             SpiderMan Trivia Inc.
             </p>
     
-            <img src="../assets/icons/github.svg" alt="">
+            <img src="assets/icons/github.svg" alt="">
         </section>
         `
     }
