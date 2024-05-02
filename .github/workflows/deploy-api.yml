@@ -62,6 +62,7 @@ jobs:
       - name: Upload artifact to S3
         run: |
           aws s3 cp ${{ env.ARTIFACT_NAME }} s3://${{ env.BUCKET_NAME }}/${{ env.ARTIFACT_NAME }}
+        working-directory: backend
 
       - name: Deploy to Elastic Beanstalk
         run: |
