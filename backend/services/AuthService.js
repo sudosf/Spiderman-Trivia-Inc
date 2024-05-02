@@ -39,7 +39,7 @@ class AuthService {
         const githubUserData = await this.getGithubUserInfo(accessToken);
         const user = await UserService.findOrCreateUser(githubUserData);
         const jwtToken = this.generateJWT(user);
-        return { access_token: jwtToken};
+        return { access_token: jwtToken, username:user.username};
     }
 
     async getGithubUserInfo(accessToken) {
