@@ -1,17 +1,41 @@
 class Subjects extends HTMLElement {
-    connectedCallback() {
+    async connectedCallback() {
+        // loading state
         this.innerHTML = `
-            <div class="subjects-container">
-                <subject-component name="Classic"
-                image-url="assets/images/classic.png"></subject-component>
-                <subject-component name="Amazing"
-                image-url="assets/images/amazing.png"></subject-component>
-                <subject-component name="MCU"
-                image-url="assets/images/mcu.png"></subject-component>
-                <subject-component name="Next-Gen"
-                image-url="assets/images/nextgen.png"></subject-component>
-            </div>
+            <section class="subjects-container">
+                <img src="assets/images/loading.gif" alt="Loading..." class="loading-indicator" />
+            </section>
         `;
+
+        const authToken = localStorage.getItem('authToken');
+        try {
+            const response = await fetch('http://spiderman-trivia-api.eu-west-1.elasticbeanstalk.com/api/subjects', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${authToken}`
+                }
+            });
+            const data = await response.json();
+
+            if (data.status === "success" && data.data.length > 0) {
+                const subjectsHtml = data.data.map(subject => `
+                    <subject-component name="${subject.name}"
+                    image-url="${subject.image_url}"></subject-component>
+                `).join('');
+
+                this.innerHTML = `
+                    <section class="subjects-container">
+                        ${subjectsHtml}
+                    </section>
+                `;
+            } else {
+                this.innerHTML = `<section class="subjects-container">No subjects available.</section>`;
+            }
+        } catch (error) {
+            console.error('Failed to fetch subjects:', error);
+            this.innerHTML = `<section class="subjects-container">Error loading subjects.</section>`;
+        }
     }
 }
 
