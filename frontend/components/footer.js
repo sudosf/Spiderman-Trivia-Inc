@@ -1,6 +1,6 @@
 class Footer extends HTMLElement {
-  connectedCallback() {
-    this.innerHTML = `
+    connectedCallback() {
+        this.innerHTML = `
         <footer>
             <p>
             &copy;
@@ -11,7 +11,7 @@ class Footer extends HTMLElement {
             <img src='assets/icons/github.svg' alt='github'>
         </footer>
         `;
-  }
+    }
 }
 
 customElements.define('app-footer', Footer);

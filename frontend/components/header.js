@@ -1,6 +1,6 @@
 class Header extends HTMLElement {
-  connectedCallback() {
-    this.innerHTML = `
+    connectedCallback() {
+        this.innerHTML = `
         <header class="container">
             <img src="assets/icons/logo.svg" alt="logo" />
   
@@ -10,7 +10,7 @@ class Header extends HTMLElement {
             </aside>
         </header>
         `;
-  }
+    }
 }
 
 customElements.define('app-header', Header);
