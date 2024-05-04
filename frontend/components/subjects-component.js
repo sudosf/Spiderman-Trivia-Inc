@@ -17,7 +17,6 @@ class Subjects extends HTMLElement {
                 }
             });
             const data = await response.json();
-
             if (data.status === "success" && data.data.length > 0) {
                 const subjectsHtml = data.data.map(subject => `
                     <subject-component name="${subject.name}"
@@ -29,7 +28,11 @@ class Subjects extends HTMLElement {
                         ${subjectsHtml}
                     </section>
                 `;
-            } else {
+            } else if(data.status === "UnauthorizedError"){
+                localStorage.setItem('signedIn',"false");
+                window.location.replace('index.html'); // Redirect to the main page
+            }
+            else{
                 this.innerHTML = `<section class="subjects-container">No subjects available.</section>`;
             }
         } catch (error) {
