@@ -4,7 +4,7 @@ const morgan = require('morgan');
 const sequelize = require('./config/database');
 const logger = require('./config/logger');
 const verifyToken = require('./middleware/jwtMiddleware');
-const customCors = require('./middleware/customCorsMIddleware');
+const customCors = require('./middleware/customCorsMiddleware');
 
 // routes
 const usersRoutes = require('./routes/UserRoutes');
