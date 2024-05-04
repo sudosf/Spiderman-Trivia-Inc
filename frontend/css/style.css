@@ -64,6 +64,24 @@ p {
     font-size: 1rem;
     font-weight: normal;
 }
+.btn-sign-in{
+    display: inline-flex;
+    align-items: center;
+    line-height: 1rem;
+    white-space: nowrap;
+    gap: 1rem;
+    border: none;
+    border-radius: 1.3rem;
+    margin: auto 0;
+    cursor: pointer;
+    color: var(--text-color);
+    background-color: var(--card-bg-color);
+    text-decoration: none;
+
+}
+.btn-sign-in:hover{
+    background-color: var(--accent-color);
+}
 
 button {
     display: inline-flex;
@@ -211,4 +229,37 @@ progress::-webkit-progress-bar {
     background-color: var(--card-bg-color);
     height: 100%;
     border-radius: 1.5em;
+}
+
+/** Subjects on the homepage **/
+.subject-container {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0.25rem 0.5rem rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+.subject-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.subject-name {
+    color: var(--text-color);
+    padding: 0.9rem;
+    background-color: var(--card-bg-color);
+    width: 100%;
+}
+.subject-container:hover{
+    transform: scale(1.05);
+    box-shadow: 0 0 1em var(--primary-color);
+}
+.subjects-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    grid-template-rows: repeat(2, auto); /* Two rows */
+    gap: 1.5rem;
+    text-decoration: none;
+}
+subject-component {
+    width: 100%; /* Full width of the grid column */
 }
