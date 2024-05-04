@@ -7,7 +7,7 @@ const client_id = process.env.GITHUB_CLIENT_ID;
 const client_secret = process.env.GITHUB_CLIENT_SECRET;
 const jwtSecret = process.env.JWT_SECRET;
 const scope = "read:user";
-const tokenTimeLimit = "1h";
+const tokenTimeLimit = "3 days";
 
 if(!client_id){
     logger.error("github client id not set");

@@ -14,7 +14,7 @@
   },
   "rules": {
     "prettier/prettier": "error",
-    "indent": ["error", 2],
+    "indent": ["error", 4],
     "quotes": ["error", "single"],
     "semi": ["error", "always"],
     "comma-dangle": ["error", "always-multiline"],

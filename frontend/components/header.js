@@ -24,7 +24,7 @@ class Header extends HTMLElement {
             </aside>
         </header>
         `;
-  }
+    }
 }
 
 customElements.define('app-header', Header);
