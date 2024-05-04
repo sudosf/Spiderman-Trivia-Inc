@@ -4,7 +4,7 @@ const { ForbiddenError } = require('../utils/errors');
 
 const allowedOrigins = [
     'http://127.0.0.1:5500', 
-    'https://spiderman-trivia-inc.github.io/Spiderman-Trivia-Inc'
+    'https://spiderman-trivia-inc.github.io'
   ];
 
 const customCors = (req, res, next) => {
