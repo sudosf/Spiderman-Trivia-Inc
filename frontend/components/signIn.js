@@ -1,6 +1,6 @@
 class SignIn extends HTMLElement {
-  connectedCallback() {
-    this.innerHTML = `
+    connectedCallback() {
+        this.innerHTML = `
         <main>
             <section>
                 <h1>Swing Into the Spider-Verse Trivia Challenge!</h1>
@@ -17,7 +17,7 @@ class SignIn extends HTMLElement {
             </button>
         </main>
         `;
-  }
+    }
 }
 
 customElements.define('app-signin', SignIn);
