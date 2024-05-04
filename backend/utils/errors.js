@@ -33,6 +33,11 @@ class UnauthorizedError extends BaseError {
         super('UnauthorizedError', 401, message);
     }
 }
+class ForbiddenError extends BaseError {
+    constructor(message) {
+        super('ForbiddenError', 403, message);
+    }
+}
 
 // Export all custom errors
 module.exports = {
@@ -40,5 +45,6 @@ module.exports = {
     ValidationError,
     InvalidOperationError,
     BadRequestError,
-    UnauthorizedError
+    UnauthorizedError,
+    ForbiddenError
 };
