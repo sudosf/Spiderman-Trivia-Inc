@@ -19,8 +19,11 @@ class Subjects extends HTMLElement {
             const data = await response.json();
             if (data.status === "success" && data.data.length > 0) {
                 const subjectsHtml = data.data.map(subject => `
-                    <subject-component name="${subject.name}"
-                    image-url="${subject.image_url}"></subject-component>
+                    <subject-component 
+                    name="${subject.name}"
+                    image-url="${subject.image_url}"
+                    subject-id="${subject.subject_id}">
+                    </subject-component>
                 `).join('');
 
                 this.innerHTML = `

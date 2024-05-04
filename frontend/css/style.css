@@ -252,13 +252,13 @@ progress::-webkit-progress-bar {
 .subject-container:hover{
     transform: scale(1.05);
     box-shadow: 0 0 1em var(--primary-color);
-    cursor:pointer;
 }
 .subjects-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* Two columns */
     grid-template-rows: repeat(2, auto); /* Two rows */
     gap: 1.5rem;
+    text-decoration: none;
 }
 subject-component {
     width: 100%; /* Full width of the grid column */
