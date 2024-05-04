@@ -1,6 +1,18 @@
+function escapeHTML(str) {
+  return str.replace(/[&<>"']/g, function (match) {
+      return {
+          '&': '&amp;',
+          '<': '&lt;',
+          '>': '&gt;',
+          '"': '&quot;',
+          "'": '&#39;'
+      }[match];
+  });
+}
 class Header extends HTMLElement {
   connectedCallback() {
-    const username = localStorage.getItem('signedIn') === "true" ? localStorage.getItem('username') : "there";
+    const rawUsername = localStorage.getItem('signedIn') === "true" ? localStorage.getItem('username') : "there";
+    const username = escapeHTML(rawUsername);
 
     this.innerHTML = `
         <header class="container">
