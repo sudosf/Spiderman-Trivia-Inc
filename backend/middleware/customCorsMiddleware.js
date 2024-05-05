@@ -2,9 +2,11 @@ const cors = require('cors');
 const { sendError } = require('./responseHandler');
 const { ForbiddenError } = require('../utils/errors');
 
+const FRONTEND_ORIGIN = process.env.FRONTEND_ORIGIN;
+
 const allowedOrigins = [
     'http://127.0.0.1:5500', 
-    'https://spiderman-trivia-inc.github.io'
+    FRONTEND_ORIGIN
   ];
 
 const customCors = (req, res, next) => {
