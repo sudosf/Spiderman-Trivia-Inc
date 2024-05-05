@@ -9,7 +9,7 @@ class Subjects extends HTMLElement {
 
         const authToken = localStorage.getItem('authToken');
         try {
-            const response = await fetch('https://spiderman-trivia-api.eu-west-1.elasticbeanstalk.com/api/subjects', {
+            const response = await fetch('http://spiderman-trivia-api.eu-west-1.elasticbeanstalk.com/api/subjects', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
