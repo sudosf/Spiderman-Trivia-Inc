@@ -17,7 +17,7 @@ router.get('/github/callback', async (req, res) => {
         const tokenData = await authService.exchangeCodeForToken(code);
         const token = encodeURIComponent(tokenData.access_token);
         const username = encodeURIComponent(tokenData.username);
-        const url = `${FRONTEND_ORIGIN}/callback#token=${token}&username=${username}`;
+        const url = `${FRONTEND_ORIGIN}/callback.html#token=${token}&username=${username}`;
         res.redirect(url);
     } catch (error) {
         sendError(res, error);
