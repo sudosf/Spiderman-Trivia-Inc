@@ -7,21 +7,7 @@ class Button extends HTMLElement {
         const isCorrectAttribute = Boolean(this.getAttribute('isCorrect'));
 
         const submitBtn = this.getAttribute('isSubmit') ? 'btn-submit' : '';
-
-        let icon2Url;
-
-        if (isCorrectAttribute) {
-            icon2Url = Icons.check;
-        } else if (!isCorrectAttribute) {
-            icon2Url = Icons.cancel;
-        } else {
-            icon2Url = undefined;
-        }
-
-        const rightIconHTML = icon2Url
-            ? `<img class="btn-right" src="${icon2Url}"/>`
-            : '';
-
+        const leftIconHTML = this.getAttribute('isSubmit')?`<img src="${iconUrl}" alt="Icon"/>`:`<p class="options-num">${iconUrl}</p>`;
         this.innerHTML = `
         <button class="btn-options ${submitBtn}">
             <aside class="btn-left">

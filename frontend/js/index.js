@@ -1,5 +1,3 @@
-const rootElement = document.documentElement;
-
 const modeToggleBtn = document.getElementById('theme-toggle-btn');
 
 modeToggleBtn.addEventListener('click', () => {
