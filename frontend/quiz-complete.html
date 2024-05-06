@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/utility-classes.css" />
+    <link rel="stylesheet" href="css/quiz-complete.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script defer src="js/index.js"></script>
+    <title>Home</title>
+  </head>
+  <body>
+    <header>
+      <img src="assets/icons/logo.svg" alt="logo" />
+
+      <aside>
+        <img src="assets/icons/moon.svg" alt="theme-toggler" />
+        <h3>Hello, There</h3>
+      </aside>
+    </header>
+
+    <article class=" h-full items-center flex p-2 flex-wrap">
+      <section class="flex flex-col j flex-1  h-full">
+        <h1>Quiz complete. You scored...</h1>
+        <p class="flex-1 flex items-center  ">
+            Whether you soared high or are just getting started,
+             remember, every hero's journey is filled with learning.
+              Feel free to play again or explore other versions to test your knowledge of the Spider-Verse!
+        </p>
+      </section>
+
+      <section class=" flex flex-1 flex-col gap-3  h-full justify-center items-center">
+        <div class="score-container bg-secondary p-1 rounded-sm">
+            <p class="text-primary">Classic</p>
+            <h1>8 / 10</h1>
+            <img src="./assets/images/meme.png" />
+        </div>
+
+        <div class="flex w-full gap-2 justify-center">
+
+            <button class="p-1 bg-accent">  Past Attempts</button>
+            <button class="p-1 bg-primary text-white">Play Again</button>
+
+        </div>
+
+      </section>
+    </article>
+
+    <footer>
+      <p>
+        &copy;
+        <script> document.write(new Date().getFullYear());</script>
+        SpiderMan Trivia Inc.
+      </p>
+
+      <img src="assets/icons/github.svg" alt="">
+    </footer>
+  </body>
+</html>

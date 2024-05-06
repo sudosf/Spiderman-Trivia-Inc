@@ -1,0 +1,143 @@
+/* Flexbox Utilities */
+.flex-1 {
+    flex: 1;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.flex-grow {
+    flex-grow: 1;
+}
+
+.flex-wrap{
+    flex-wrap: wrap;
+}
+/* Alignment Utilities */
+.items-center {
+    align-items: center;
+}
+
+.items-start {
+    align-items: start;
+}
+
+.items-end {
+    align-items: end;
+}
+
+/* Justification Utilities */
+.justify-center {
+    justify-content: center;
+}
+
+.justify-start {
+    justify-content: start;
+}
+
+.justify-end {
+    justify-content: end;
+}
+
+/* Background Color Utilities */
+.bg-primary {
+    background-color: var(--primary-color);
+}
+
+.bg-accent {
+    background-color: var(--accent-color);
+}
+
+.bg-secondary {
+    background-color: var(--card-bg-color);
+}
+
+.bg-correct {
+    background-color: var(--text-correct-color);
+}
+
+/* Text Color Utilities */
+.text-black {
+    color: black;
+}
+
+.text-white {
+    color: white;
+}
+
+.text-primary{
+    color: var(--primary-color);
+}
+
+/* Dimension Utilities */
+.h-full {
+    height: 100%;
+}
+
+.w-full {
+    width: 100%;
+}
+
+/* Border Radius Utilities */
+.rounded-sm {
+    border-radius: 1rem;
+}
+
+.rounded-md {
+    border-radius: 2rem;
+}
+
+.rounded-lg {
+    border-radius: 4rem;
+}
+
+/* Spacing Utilities */
+.gap-1 {
+    gap: 1rem;
+}
+
+.gap-2 {
+    gap: 2rem;
+}
+
+.gap-3 {
+    gap: 3rem;
+}
+
+.p-1 {
+    padding: 1rem;
+}
+
+.p-2 {
+    padding: 2rem;
+}
+
+.p-3 {
+    padding: 3rem;
+}
+
+.m-1 {
+    margin: 1rem;
+}
+
+.m-2 {
+    margin: 2rem;
+}
+
+.m-3 {
+    margin: 3rem;
+}
+
+/* Border Utilities */
+.border-none {
+    border: none;
+}
+
+.border {
+    border: solid 1px black;
+}
