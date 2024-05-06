@@ -148,6 +148,19 @@ footer {
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
+.btn-options-correct{
+  border: 0.1rem solid var(--text-correct-color);
+  transform: scale(1.1);
+  box-shadow: 0 0 1em var(--text-correct-color);
+  border-radius: 1.3rem;
+}
+
+.btn-options-wrong{
+  border: 0.1rem solid var(--primary-color);
+  transform: scale(1.05);
+  box-shadow: 0 0 1em var(--primary-color);
+}
+
 .btn-options:hover {
   background-color: var(--accent-color);
   transform: scale(1.05);
@@ -208,6 +221,9 @@ progress::-webkit-progress-bar {
   background-color: var(--primary-color) !important;
   color: var(--bg-color);
 }
+.btn-submit p{
+  color: #e2e8f0;
+}
 .btn-submit img{
   filter: invert(100%);
 }
@@ -215,6 +231,10 @@ progress::-webkit-progress-bar {
   background-color: var(--primary-color) !important;
   transform: scale(1.05);
   box-shadow: 0 0 1em var(--primary-color) !important;
+}
+.options-num{
+  font-weight: bold;
+  width: 1.5rem;
 }
 /**
 @media (prefers-color-scheme: dark) {

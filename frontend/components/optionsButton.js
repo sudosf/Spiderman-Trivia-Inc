@@ -16,11 +16,12 @@ class Button extends HTMLElement{
         
 
         const rightIconHTML = icon2Url ? `<img class="btn-right" src="${icon2Url}"/>` : '';
+        const leftIconHTML = this.getAttribute('isSubmit')?`<img src="${iconUrl}" alt="Icon"/>`:`<p class="options-num">${iconUrl}</p>`;
         this.innerHTML=`
         <button class="btn-options ${submitBtn}">
             <aside class="btn-left">
-                <img src="${iconUrl}" alt="Icon"/>
-                <p>${option}</p>
+                ${leftIconHTML}
+                <p></p>
             </aside>
             ${rightIconHTML}
         </button>
