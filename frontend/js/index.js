@@ -5,6 +5,7 @@ const progressBar = document.getElementById('progress-bar');
 const questionsCount = document.getElementById('current-question');
 const submitBtn = document.getElementById('submit')
 const BUTTONS_IDs = [];
+let correctAnswers = [];
 let CURRENT_ANSWER;
 let QUESTION_INDEX = 0;
 let isAnswered = false;
