@@ -3,6 +3,10 @@
     flex: 1;
 }
 
+.my-style{
+    gap: 6rem;
+}
+
 .flex {
     display: flex;
 }
@@ -106,7 +110,7 @@
 }
 
 .gap-3 {
-    gap: 3rem;
+    gap: 4.5rem;
 }
 
 .p-1 {
@@ -120,6 +124,12 @@
 .p-3 {
     padding: 3rem;
 }
+
+.p-4 {
+    padding: 5rem;
+}
+
+
 
 .m-1 {
     margin: 1rem;

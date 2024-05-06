@@ -1,59 +1,56 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/utility-classes.css" />
-    <link rel="stylesheet" href="css/quiz-complete.css" />
-    <link rel="stylesheet" href="css/style.css" />
-    <script defer src="js/index.js"></script>
-    <title>Home</title>
-  </head>
-  <body>
-    <header>
-      <img src="assets/icons/logo.svg" alt="logo" />
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/quiz-complete.css">
+  <title>Home</title>
+</head>
+<body>
+  <header>
+    <img src="assets/icons/logo.svg" alt="logo">
+    <aside>
+      <img src="assets/icons/moon.svg" alt="theme-toggler">
+      <h3>Hello, There</h3>
+    </aside>
+  </header>
 
-      <aside>
-        <img src="assets/icons/moon.svg" alt="theme-toggler" />
-        <h3>Hello, There</h3>
-      </aside>
-    </header>
-
-    <article class=" h-full items-center flex p-2 flex-wrap">
-      <section class="flex flex-col j flex-1  h-full">
-        <h1>Quiz complete. You scored...</h1>
-        <p class="flex-1 flex items-center  ">
-            Whether you soared high or are just getting started,
-             remember, every hero's journey is filled with learning.
-              Feel free to play again or explore other versions to test your knowledge of the Spider-Verse!
-        </p>
-      </section>
-
-      <section class=" flex flex-1 flex-col gap-3  h-full justify-center items-center">
-        <div class="score-container bg-secondary p-1 rounded-sm">
-            <p class="text-primary">Classic</p>
-            <h1>8 / 10</h1>
-            <img src="./assets/images/meme.png" />
-        </div>
-
-        <div class="flex w-full gap-2 justify-center">
-
-            <button class="p-1 bg-accent">  Past Attempts</button>
-            <button class="p-1 bg-primary text-white">Play Again</button>
-
-        </div>
-
-      </section>
-    </article>
-
-    <footer>
-      <p>
-        &copy;
-        <script> document.write(new Date().getFullYear());</script>
-        SpiderMan Trivia Inc.
+  <article class="main-content">
+    <section class="quiz-info">
+      <h1>Quiz complete. You scored...</h1>
+      <p class="complete-passage">
+        Whether you've soared to great heights or
+         are just embarking on your journey, always
+          remember: every hero's path is enriched with
+           valuable lessons and growth opportunities. 
+           Feel free to immerse yourself in another round
+            of challenges or explore alternative versions to
+             delve deeper into the vast web of knowledge that
+              the Spider-Verse holds!
       </p>
+    </section>
 
-      <img src="assets/icons/github.svg" alt="">
-    </footer>
-  </body>
+    <section class="score-container">
+      <div class="score-wrapper">
+      <p class="score-type">Classic</p>
+      <h1>10 / 10</h1>
+      <img src="./assets/images/meme.png" class="imgs" alt="meme">
+    </div>
+      <div class="button-container">
+        <button class="button past-attempts"> <span><img src="./assets/icons/eye.svg"/></span>Past Attempts</button>
+        <button class="button play-again"><span><img class="white-icon" src="./assets/icons/arrow-right.svg"/></span>Play Again</button>
+      </div>
+    </section>
+  </article>
+
+  <footer>
+    <p>
+      &copy;
+      <script> document.write(new Date().getFullYear());</script>
+      SpiderMan Trivia Inc.
+    </p>
+    <img src="assets/icons/github.svg" alt="GitHub">
+  </footer>
+</body>
 </html>
