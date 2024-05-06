@@ -5,9 +5,9 @@ const UserService = require('./UserService');
 
 const client_id = process.env.GITHUB_CLIENT_ID;
 const client_secret = process.env.GITHUB_CLIENT_SECRET;
-const jwtSecret = process.env.JWT_SECRET;
-const scope = "read:user";
-const tokenTimeLimit = "1h";
+const JWT_SECRET = process.env.JWT_SECRET;
+const JWT_TIME_LIMIT = process.env.JWT_TIME_LIMIT;
+const scope = process.env.GITHUB_SCOPE;
 
 if(!client_id){
     logger.error("github client id not set");
@@ -15,7 +15,7 @@ if(!client_id){
 if(!client_secret){
     logger.error("github client secret not set");
 } 
-if(!jwtSecret){
+if(!JWT_SECRET){
     logger.error("jwt secret not set");
 } 
 class AuthService {
@@ -39,7 +39,7 @@ class AuthService {
         const githubUserData = await this.getGithubUserInfo(accessToken);
         const user = await UserService.findOrCreateUser(githubUserData);
         const jwtToken = this.generateJWT(user);
-        return { access_token: jwtToken};
+        return { access_token: jwtToken, username:user.username};
     }
 
     async getGithubUserInfo(accessToken) {
@@ -53,7 +53,7 @@ class AuthService {
         const payload = {
             user_id:user.user_id
         };
-        return jwt.sign(payload, jwtSecret, { expiresIn: tokenTimeLimit });
+        return jwt.sign(payload, JWT_SECRET, { expiresIn: JWT_TIME_LIMIT });
     }
 }
 

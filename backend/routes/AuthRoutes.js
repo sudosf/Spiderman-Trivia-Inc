@@ -1,7 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const authService = require('../services/AuthService');
-const { sendResponse, sendError } = require('../middleware/responseHandler');
+const { sendError } = require('../middleware/responseHandler');
+
+const FRONTEND_ORIGIN = process.env.FRONTEND_ORIGIN;
 
 // Initiate GitHub OAuth
 router.get('/github', (req, res) => {
@@ -13,12 +15,10 @@ router.get('/github/callback', async (req, res) => {
     try {
         const { code } = req.query;
         const tokenData = await authService.exchangeCodeForToken(code);
-        /** I was thinking of sending the access token by having a callback on the frontend
-         * it should take that token and save it to localStorage
-        const url = `http://spiderman-frontend.com/login-success?token=${encodeURIComponent(tokenData.accessToken)}`;
+        const token = encodeURIComponent(tokenData.access_token);
+        const username = encodeURIComponent(tokenData.username);
+        const url = `${FRONTEND_ORIGIN}/callback.html#token=${token}&username=${username}`;
         res.redirect(url);
-        */
-        sendResponse(res, 200, tokenData);
     } catch (error) {
         sendError(res, error);
     }

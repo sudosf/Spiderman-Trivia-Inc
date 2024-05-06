@@ -1,16 +1,33 @@
-class Header extends HTMLElement{
-    connectedCallback(){
-        this.innerHTML=`
-        <header class="container">
-            <img src="assets/icons/logo.svg" alt="logo" />
+import { Icons } from '../common/constants.js';
+
+function escapeHTML(str) {
+  return str.replace(/[&<>"']/g, function (match) {
+      return {
+          '&': '&amp;',
+          '<': '&lt;',
+          '>': '&gt;',
+          '"': '&quot;',
+          "'": '&#39;'
+      }[match];
+  });
+}
+
+class Header extends HTMLElement {
+  connectedCallback() {
+    const rawUsername = localStorage.getItem('signedIn') === "true" ? localStorage.getItem('username') : "there";
+    const username = escapeHTML(rawUsername);
+
+    this.innerHTML = `
+        <header>
+            <img src=${Icons.logo} alt="logo" />
   
             <aside>
-                <img src="assets/icons/moon.svg" alt="theme-toggler" id="mode-toggle-btn" />
-                <h3>Hello, there</h3>
+                <img id="theme-toggle-btn" src=${Icons.moon} alt="theme-toggler" />
+                <h6>Hello, ${username}</h6>
             </aside>
         </header>
-        `
+        `;
     }
 }
 
-customElements.define("app-header",Header);
+customElements.define('app-header', Header);
