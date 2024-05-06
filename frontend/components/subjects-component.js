@@ -1,15 +1,17 @@
+import { Links, Images } from '../common/constants.js';
+
 class Subjects extends HTMLElement {
     async connectedCallback() {
         // loading state
         this.innerHTML = `
             <section class="subjects-container">
-                <img src="assets/images/loading.gif" alt="Loading..." class="loading-indicator" />
+                <img src=${Images.loading} alt="Loading..." class="loading-indicator" />
             </section>
         `;
 
         const authToken = localStorage.getItem('authToken');
         try {
-            const response = await fetch('http://spiderman-trivia-api.eu-west-1.elasticbeanstalk.com/api/subjects', {
+            const response = await fetch(`${Links.serverBaseURL}/subjects`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
