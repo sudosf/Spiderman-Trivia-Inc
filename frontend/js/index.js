@@ -1,6 +1,6 @@
 const rootElement = document.documentElement;
 
-const modeToggleBtn = document.getElementById('mode-toggle-btn');
+const modeToggleBtn = document.getElementById('theme-toggle-btn');
 
 modeToggleBtn.addEventListener('click', () => {
     rootElement.classList.toggle('dark-mode');

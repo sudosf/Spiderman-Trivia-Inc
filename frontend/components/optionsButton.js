@@ -1,3 +1,5 @@
+import { Icons } from '../common/constants.js';
+
 class Button extends HTMLElement {
     connectedCallback() {
         const iconUrl = this.getAttribute('icon');
@@ -9,9 +11,9 @@ class Button extends HTMLElement {
         let icon2Url;
 
         if (isCorrectAttribute) {
-            icon2Url = '../assets/icons/check.svg';
+            icon2Url = Icons.check;
         } else if (!isCorrectAttribute) {
-            icon2Url = '../assets/icons/X.svg';
+            icon2Url = Icons.cancel;
         } else {
             icon2Url = undefined;
         }

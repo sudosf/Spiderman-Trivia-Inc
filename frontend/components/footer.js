@@ -1,3 +1,5 @@
+import { Icons } from '../common/constants.js';
+
 class Footer extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
@@ -7,8 +9,8 @@ class Footer extends HTMLElement {
                 ${new Date().getFullYear()}
             SpiderMan Trivia Inc.
             </p>
-    
-            <img src='assets/icons/github.svg' alt='github'>
+            
+            <img src=${Icons.github} alt='github'>
         </footer>
         `;
     }

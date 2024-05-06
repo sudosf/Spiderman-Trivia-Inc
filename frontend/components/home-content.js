@@ -1,3 +1,5 @@
+import { Links, Icons } from '../common/constants.js';
+
 class HomeContent extends HTMLElement {
   connectedCallback() {
     if(localStorage.getItem('signedIn') === "true"){
@@ -6,8 +8,8 @@ class HomeContent extends HTMLElement {
     `;
     }else{
         this.innerHTML = `
-        <a href="http://spiderman-trivia-api.eu-west-1.elasticbeanstalk.com/api/auth/github" class="btn-long btn-sign-in">
-            <img src="assets/icons/github.svg" alt="github" />
+        <a href="${Links.serverBaseURL}/auth/github" class="btn-long btn-sign-in">
+            <img src=${Icons.github} alt="github" />
             Sign in with GitHub
         </a>
     `;
