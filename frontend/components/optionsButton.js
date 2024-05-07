@@ -7,7 +7,10 @@ class Button extends HTMLElement {
         const isCorrectAttribute = Boolean(this.getAttribute('isCorrect'));
 
         const submitBtn = this.getAttribute('isSubmit') ? 'btn-submit' : '';
-        const leftIconHTML = this.getAttribute('isSubmit')?`<img src="${iconUrl}" alt="Icon"/>`:`<p class="options-num">${iconUrl}</p>`;
+        const leftIconHTML = this.getAttribute('isSubmit')
+            ? `<img src="${iconUrl}" alt="Icon"/>`
+            : `<p class="options-num">${iconUrl}</p>`;
+            
         this.innerHTML = `
         <button class="btn-options ${submitBtn}">
             <aside class="btn-left">

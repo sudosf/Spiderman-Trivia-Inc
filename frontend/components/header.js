@@ -25,14 +25,14 @@ class Header extends HTMLElement {
                    `
     this.innerHTML = `
             <header>
-                <img src=${Icons.logo} alt="logo" />
+                <img class="logo" src=${Icons.logo} alt="logo" />
                 <div class="dropdown">
                     <img src=${profilePicture} alt="Avatar" class="avatar">
                     <div class="dropdown-content">
                         <h6 class="dropdown-name">Hello, ${username}</h6>
                         <div class="dropdown-links">
                             <a href="#" id="theme-toggle-btn"> 
-                                    <img src=${Icons.moon} alt="theme-toggler" />
+                                    <img class="moon" src=${Icons.moon} alt="theme-toggler" />
                                     <span>dark mode</span>
                                 </a>
                             ${links}
