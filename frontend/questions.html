@@ -4,60 +4,37 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="css/style.css" />
+
         <title>Questions</title>
     </head>
     <body>
         <app-header></app-header>
 
-        <main>
-            <section class="questions-container">
-				<section>
-                	<p>
-						<span>Classic</span> 
-						- Question 1 of 10
-					</p>
-               		<h1>What job does Peter Parker have?</h1>
-				</section>
+    <main  class="container main-container">
+      <section class="questions-container">
+          <p>
+            Classic - Question <span id="current-question"></span> of 10
+          </p>
+        <h2 id="prompt-quetions"></h2>
+        <progress id="progress-bar" value="0" max="10"></progress>
+      </section>
 
-				<progress value="50" max="100"></progress>
-            </section>
-
-            <section class="options-container">
-                <options-btn
-                    icon="assets/icons/A.svg"
-                    option="High School Teacher"
-                    id="0">
-				</options-btn>
-                <options-btn
-                    icon="assets/icons/B.svg"
-                    option="Professional Photographer"
-                    id="1">
-				</options-btn>
-                <options-btn
-                    icon="assets/icons/C.svg"
-                    option="Freelance Journalist"
-                    id="2">
-				</options-btn>
-                <options-btn
-                    icon="assets/icons/D.svg"
-                    option="Lab Assistant"
-                    id="3">
-				</options-btn>
-                <options-btn
-                    icon="assets/icons/arrow-right.svg"
-                    option="Submit answer"
-                    isSubmit="true"
-                    id="submit">
-                </options-btn>
-            </section>
-        </main>
+      <section class="options-container">
+        <options-btn icon="A" id="opt-1"></options-btn>
+        <options-btn icon="B" id="opt-2" ></options-btn>
+        <options-btn icon="C" id="opt-3"></options-btn>
+        <options-btn icon="D" id="opt-4"></options-btn>
+        <options-btn icon="assets/icons/arrow-right.svg" option="Submit answer" isSubmit="true" id="submit"></options-btn>
+      </section>
+    </main>
 
         <app-footer></app-footer>
 
-        <script defer src="js/index.js"></script>
+        <script type="module" src="components/header.js"></script>
+        <script type="module" src="components/footer.js"></script>
+        <script type="module" src="components/optionsButton.js"></script>
+        <script type="module" src="common/constants.js"></script>
         <script defer src="js/questions.js"></script>
-        <script src="components/header.js"></script>
-        <script src="components/footer.js"></script>
-        <script src="components/optionsButton.js"></script>
+        <script defer src="js/index.js"></script>
     </body>
 </html>
