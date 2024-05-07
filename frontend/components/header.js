@@ -19,10 +19,10 @@ class Header extends HTMLElement {
 
     this.innerHTML = `
         <header>
-            <img src=${Icons.logo} alt="logo" />
+            <img class="logo" src=${Icons.logo} alt="logo" />
   
             <aside>
-                <img id="theme-toggle-btn" src=${Icons.moon} alt="theme-toggler" />
+                <img class="moon" id="theme-toggle-btn" src=${Icons.moon} alt="theme-toggler" />
                 <h6>Hello, ${username}</h6>
             </aside>
         </header>

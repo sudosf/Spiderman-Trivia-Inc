@@ -7,6 +7,7 @@ export const Icons = {
     logo: 'assets/icons/logo.svg',
     github: 'assets/icons/github.svg',
     moon: 'assets/icons/moon.svg',
+    sun: 'assets/icons/sun.svg',
     check: 'assets/icons/check.svg',
     cancel: 'assets/icons/X.svg',
 };
