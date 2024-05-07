@@ -1,4 +1,4 @@
-import { Links } from "./constants";
+import { Links } from "./constants.js";
 class APICall{
 
     constructor(){
@@ -17,14 +17,23 @@ class APICall{
         };
 
         return new Promise((resolve, reject) => {
-            fetch(Links.serverBaseURL+`/${path}`, options)
+            fetch(`${Links.serverBaseURL}/${path}`, options)
             .then(response => {
                 if (!response.ok) {
-                    throw new Error('Network response was not ok');
+                    if(response.status === 401){
+                        localStorage.setItem('signedIn', "false");
+                        window.location.replace('index.html');
+                    } else if(response.status === 404){
+                        console.error('Not found!!');
+                    } else {
+                        reject(new Error('Network response was not ok'));
+                    }
+                    return;
                 }
                 return response.json();
             })
             .then(data => {
+                console.log(data);
                 resolve(data);
             })
             .catch(error => {
@@ -41,10 +50,18 @@ class APICall{
         };
 
         return new Promise((resolve, reject) => {
-            fetch(Links.serverBaseURL + `/${path}`, options)
+            fetch(`${Links.serverBaseURL}/${path}`, options)
             .then(response => {
                 if (!response.ok) {
-                    throw new Error('Network response was not ok');
+                    if(response.status === 401){
+                        localStorage.setItem('signedIn', "false");
+                        window.location.replace('index.html');
+                    } else if(response.status === 404){
+                        throw new Error('Not found!!');//should redirect to 404 page
+                    } else {
+                        throw new Error('Network response was not ok');
+                    }
+                    return;
                 }
                 return response.json();
             })
