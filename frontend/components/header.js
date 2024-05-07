@@ -1,4 +1,4 @@
-import { Icons } from '../common/constants.js';
+import { Icons,Links } from '../common/constants.js';
 
 function escapeHTML(str) {
   return str.replace(/[&<>"']/g, function (match) {
@@ -16,46 +16,30 @@ class Header extends HTMLElement {
   connectedCallback() {
     const rawUsername = localStorage.getItem('signedIn') === "true" ? localStorage.getItem('username') : "there";
     const username = escapeHTML(rawUsername);
-
+    const profilePicture = username === 'there' ? `assets/images/default-avatar.jpeg` : `https://github.com/${username}.png`;
+    const links = localStorage.getItem('signedIn') === "true" 
+                ? ` <a href="leaderboard.html">leaderboard</a>
+                    <a href="attempts.html">My attempts</a>
+                    <a href="logout.html">logout</a>`
+                : `<a href="${Links.serverBaseURL}/auth/github">login</a>
+                   `
     this.innerHTML = `
-        <style>
-          aside h6 {
-            text-decoration: underline;
-            cursor: pointer;
-            position: relative;
-          }
-          .dropdown-menu {
-            display: none;
-            position: absolute;
-            background-color: var(--card-bg-color);
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-            top:60px;
-          }
-          .dropdown-menu a {
-            color: var(--text-color);
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-          }
-          .dropdown-menu a:hover {
-            background-color: var(--accent-color);
-            transform: scale(1.05);
-            box-shadow: 0 0 1em var(--accent-color);
-          }
-        </style>
-        <header>
-            <img src=${Icons.logo} alt="logo" />
-  
-            <aside>
-                <img id="theme-toggle-btn" src=${Icons.moon} alt="theme-toggler" />
-                <h6 tabindex="0">Hello, ${username}</h6>
-                <div class="dropdown-menu">
-                    <a href="/quiz-attempts">Quiz Attempts</a>
-                    <a href="/logout">Logout</a>
+            <header>
+                <img src=${Icons.logo} alt="logo" />
+                <div class="dropdown">
+                    <img src=${profilePicture} alt="Avatar" class="avatar">
+                    <div class="dropdown-content">
+                        <h6 class="dropdown-name">Hello, ${username}</h6>
+                        <div class="dropdown-links">
+                            <a href="#" id="theme-toggle-btn"> 
+                                    <img src=${Icons.moon} alt="theme-toggler" />
+                                    <span>dark mode</span>
+                                </a>
+                            ${links}
+                        </div>
+                    </div>
                 </div>
-            </aside>
-        </header>
+            </header>
         `;
 
     this.querySelector('h6').addEventListener('click', this.toggleDropdown);
