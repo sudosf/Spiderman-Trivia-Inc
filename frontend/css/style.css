@@ -81,7 +81,7 @@ p {
     font-size: var(--step-0);
 }
 
-button {
+button, .btn {
     display: inline-flex;
     align-items: center;
     font-size: var(--step-0);
@@ -92,9 +92,11 @@ button {
     cursor: pointer;
     color: var(--text-color);
     background-color: var(--card-bg-color);
+    text-decoration: none;
 }
 
-button:hover {
+
+button:hover, .btn:hover {
     background-color: var(--accent-color);
 }
 
