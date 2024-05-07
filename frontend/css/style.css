@@ -17,22 +17,39 @@
     --accent-color: #7dd0f3;
     --card-bg-color: #e2e8f0;
     --select-color: #7dd0f3;
+    --light-color: #fdfcfc;
+
+    --btn-border-size: 0.2rem;
+    --btn-border-radius: 2rem;
+
+    --step--1: clamp(0.5rem, 0.7rem + 0.1vw, 1.2rem);
+    --step-0: clamp(0.8rem, 0.975rem + 0.1vw, 1.3rem); /* Step 0: 15px → 16px */
+    --step-1: clamp(1.125rem, 1.2761rem + 0.3696vw, 1.3rem); /* Step 1: 18px → 20px */
+    --step-2: clamp(1.62rem, 1.5041rem + 0.5793vw, 1.9531rem); /* Step 2: 25.92px → 31.25px */
+    --step-3: clamp(1.944rem, 1.771rem + 0.8651vw, 2.4414rem); /* Step 3: 31.104px → 39.0625px */
+    --step-4: clamp(2.7994rem,2.4462rem + 1.7658vw,3.8147rem); /* Step 5: 44.7898px → 61.0352px */
 }
 
 .dark-mode {
-    --text-color: #dbf6fd;
+    --text-color: #fdfcfc;
     --bg-color: #181b1c;
     --primary-color: #9e092a;
     --secondary-color: #434a5a;
     --accent-color: #a5cad7;
     --card-bg-color: #202528;
+
+    .logo, .github {
+        filter: invert(100%);
+    }
 }
+
 
 html,
 body {
     display: flex;
     flex-direction: column;
     height: 100%;
+    width: auto;
     color: var(--text-color);
     background-color: var(--bg-color);
     font-family: 'Comic Neue', cursive, sans-serif;
@@ -42,55 +59,35 @@ body {
 }
 
 h1 {
-    font-size: 3.75rem;
+    font-size: var(--step-3);
     font-weight: 700;
 }
 
 h2 {
-    font-size: 3rem;
+    /* font-size: 3rem; */
     font-weight: 600;
 } /*classic bold*/
 
 h3 {
-    font-size: 2.5rem;
+    /* font-size: 2.5rem; */
     font-weight: 500;
 }
 
 h6 {
-    font-size: 1.25rem;
+    font-size: var(--step-1);
 }
 
 p {
-    font-size: 1rem;
-    font-weight: normal;
-}
-.btn-sign-in{
-    display: inline-flex;
-    align-items: center;
-    line-height: 1rem;
-    white-space: nowrap;
-    gap: 1rem;
-    border: none;
-    border-radius: 1.3rem;
-    margin: auto 0;
-    cursor: pointer;
-    color: var(--text-color);
-    background-color: var(--card-bg-color);
-    text-decoration: none;
-
-}
-.btn-sign-in:hover{
-    background-color: var(--accent-color);
+    font-size: var(--step-0);
 }
 
 button {
     display: inline-flex;
     align-items: center;
-    line-height: 1rem;
-    white-space: nowrap;
-    gap: 1rem;
+    font-size: var(--step-0);
+    line-height: 1.5rem;
     border: none;
-    border-radius: 1.3rem;
+    border-radius: var(--btn-border-radius);
     margin: auto 0;
     cursor: pointer;
     color: var(--text-color);
@@ -101,14 +98,15 @@ button:hover {
     background-color: var(--accent-color);
 }
 
-.btn-long {
-    padding: 0.7rem 10rem 0.7rem 1rem;
+main,
+header {
+    display: flex;
+    margin: 2.5rem;
 }
 
 header {
-    display: flex;
     justify-content: space-between;
-    margin: 2rem;
+    gap: 1rem;
 
     aside {
         display: flex;
@@ -118,122 +116,135 @@ header {
     }
 
     aside h6 {
-        text-wrap: nowrap;
+        text-wrap: wrap;
         overflow: hidden;
         text-overflow: ellipsis;
     }
 }
 
 main {
-    display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: space-around;
+    align-items: center;
+    align-content: baseline;
     flex: 1;
-    gap: 5rem;
-    margin: 3rem 1rem;
+    gap: 2rem;
 
     section {
         display: flex;
         flex-direction: column;
-        gap: 2rem;
-        max-width: 40rem;
+        gap: 1rem;
+        max-width: max(10vw, 40rem);
+    }
+
+    /** Subjects on the homepage **/
+    .subject-container {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+
+        .subject-image {
+            width: 100%;
+            height: auto;
+        }
+
+        .subject-name {
+            color: var(--text-color);
+            background-color: var(--card-bg-color);
+            padding: 0.8rem;
+            height: 100%;
+        }
+    }
+
+    .subject-container:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 0.5rem var(--primary-color);
+    }
+
+    .subjects-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Two columns */
+        gap: 1.5rem;
     }
 }
+
 
 footer {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    flex-wrap: wrap;
     padding: 1rem 2rem;
     margin-top: auto;
     background-color: var(--card-bg-color);
-}
-.footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.container{
-  padding: 0 4rem;
-}
-
-.questions-container{
-  max-width: 50%;
-}
-.options-container{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: flex-end;
-  width:50%;
-  min-height: 50vh;
-  max-height: 70vh;
-}
-
-.main-container{
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0;
-  margin-left: 2rem;
-  margin-right: 2rem;
-  justify-content: space-between;
-  max-width:100vw;
 
 }
 
-.btn-options{
-  min-width: 100%;
-  min-height: 100%;
-  padding: 0.7rem 0.7rem 0.7rem 1rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: space-between;
-  
-  transition: transform 0.3s, box-shadow 0.3s;
+/* Button styles */
+.btn-sign-in {
+    padding: 1rem 12rem 1rem 1rem;
+    width: min(30vw, 20rem);
+    white-space: nowrap;
+    gap: 1rem;
 }
 
-.btn-options-correct{
-  border: 0.1rem solid var(--text-correct-color);
-  transform: scale(1.1);
-  box-shadow: 0 0 1em var(--text-correct-color);
-  border-radius: 1.3rem;
+.btn-submit {
+    color: var(--light-color);
+    background-color: var(--primary-color);
 }
 
-.btn-options-wrong{
-  border: 0.1rem solid var(--primary-color);
-  transform: scale(1.05);
-  box-shadow: 0 0 1em var(--primary-color);
+.btn-options {
+    justify-content: space-between;
+    align-items: center;
+    gap: 5rem;
+    border-radius: var(--btn-border-radius);
+    padding: 1rem 1.5rem;
+    width: 100%;
+    text-wrap: wrap;
+
+    transition:
+        transform 0.3s,
+        box-shadow 0.3s; 
+}
+
+.btn-options-correct {
+    border: var(--btn-border-size) solid var(--text-correct-color);
+    box-shadow: 0 0 1em var(--text-correct-color);
+    transform: scale(1.1);
+    border-radius: var(--btn-border-radius);
+}
+
+.btn-options-wrong {
+    border: var(--btn-border-size) solid var(--primary-color);
+    box-shadow: 0 0 1em var(--primary-color);
+    transform: scale(1.05);
 }
 
 .btn-options:hover {
-  background-color: var(--accent-color);
-  transform: scale(1.05);
-  box-shadow: 0 0 1em var(--accent-color);
+    background-color: var(--accent-color);
+    box-shadow: 0 0 1em var(--accent-color);
+    transform: scale(1.05);
 }
+
 .btn-options-clicked {
-  background-color: var(--accent-color);
-  transform: scale(1.05);
-  box-shadow: 0 0 1em var(--accent-color);
+    background-color: var(--accent-color);
+    box-shadow: 0 0 1em var(--accent-color);
+    transform: scale(1.05);
 }
 
-
-.btn-right{
-  margin-right: 0.5em;
-}
-.btn-right img{
-  fill:var(--text-correct-color)
-}
-.btn-left{
-  display: inline-flex;
-  align-items: center;
-  gap: 1rem;
+.btn-right img {
+    fill: var(--text-correct-color);
 }
 
-options-btn{
-  width: 85%;
-  min-height: 15%;
-  
+.btn-left {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
 }
+/* END: Button styles */
+
 
 progress {
     width: 85%;
@@ -258,37 +269,4 @@ progress::-webkit-progress-bar {
     background-color: var(--card-bg-color);
     height: 100%;
     border-radius: 1.5em;
-}
-
-/** Subjects on the homepage **/
-.subject-container {
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0 0.25rem 0.5rem rgba(0,0,0,0.1);
-    overflow: hidden;
-}
-.subject-image {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-.subject-name {
-    color: var(--text-color);
-    padding: 0.9rem;
-    background-color: var(--card-bg-color);
-    width: 100%;
-}
-.subject-container:hover{
-    transform: scale(1.05);
-    box-shadow: 0 0 1em var(--primary-color);
-}
-.subjects-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Two columns */
-    grid-template-rows: repeat(2, auto); /* Two rows */
-    gap: 1.5rem;
-    text-decoration: none;
-}
-subject-component {
-    width: 100%; /* Full width of the grid column */
 }

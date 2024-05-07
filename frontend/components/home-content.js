@@ -8,10 +8,10 @@ class HomeContent extends HTMLElement {
     `;
     }else{
         this.innerHTML = `
-        <a href="${Links.serverBaseURL}/auth/github" class="btn-long btn-sign-in">
-            <img src=${Icons.github} alt="github" />
+        <button href="${Links.serverBaseURL}/auth/github" class="btn-sign-in">
+            <img class="github" src=${Icons.github} alt="github" />
             Sign in with GitHub
-        </a>
+        </button>
     `;
     }
   }
