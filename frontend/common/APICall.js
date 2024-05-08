@@ -1,10 +1,9 @@
-import { Links } from "./constants.js";
+import { Links, User } from "./constants.js";
 class APICall{
 
     constructor(){
-        this.authToken = localStorage.getItem('authToken');
         this.headers = new Headers({
-            'Authorization': `Bearer ${this.authToken}`,
+            'Authorization': `Bearer ${User.authToken}`,
             'Content-Type': 'application/json',
         });
     }
