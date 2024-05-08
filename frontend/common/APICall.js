@@ -1,10 +1,9 @@
-import { Links } from "./constants.js";
+import { Links, User } from "./constants.js";
 class APICall{
 
     constructor(){
-        this.authToken = localStorage.getItem('authToken');
         this.headers = new Headers({
-            'Authorization': `Bearer ${this.authToken}`,
+            'Authorization': `Bearer ${User.authToken}`,
             'Content-Type': 'application/json',
         });
     }
@@ -17,8 +16,6 @@ class APICall{
         };
 
         return new Promise((resolve, reject) => {
-            console.log(`GET : ${Links.serverBaseURL}/${path}`)
-            console.log(options);
             fetch(`${Links.serverBaseURL}/${path}`, options)
             .then(response => {
                 if (!response.ok) {

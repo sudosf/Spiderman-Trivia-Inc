@@ -1,6 +1,7 @@
+import { User} from '../common/constants.js';
 class HomeText extends HTMLElement {
   connectedCallback() {
-    if(localStorage.getItem('signedIn') === "true"){
+    if(User.signedIn === "true"){
         this.innerHTML = `
         <p>
           Choose your Spider-Man and test your knowledge of their adventures! 

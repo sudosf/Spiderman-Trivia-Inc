@@ -138,39 +138,7 @@ main {
         gap: 1rem;
         max-width: max(10vw, 40rem);
     }
-
-    /** Subjects on the homepage **/
-    .subject-container {
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
-
-        .subject-image {
-            width: 100%;
-            height: auto;
-        }
-
-        .subject-name {
-            color: var(--text-color);
-            background-color: var(--card-bg-color);
-            padding: 0.8rem;
-            height: 100%;
-        }
-    }
-
-    .subject-container:hover {
-        transform: scale(1.05);
-        box-shadow: 0 0 0.5rem var(--primary-color);
-    }
-
-    .subjects-container {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr); /* Two columns */
-        gap: 1.5rem;
-    }
 }
-
 
 footer {
     display: flex;
@@ -272,3 +240,85 @@ progress::-webkit-progress-bar {
     height: 100%;
     border-radius: 1.5em;
 }
+
+/** Subjects on the homepage **/
+.subject-container {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0.25rem 0.5rem rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+.subject-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.subject-name {
+    color: var(--text-color);
+    padding: 0.9rem;
+    background-color: var(--card-bg-color);
+    width: 100%;
+}
+.subject-container:hover{
+    transform: scale(1.05);
+    box-shadow: 0 0 1em var(--primary-color);
+}
+.subjects-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    grid-template-rows: repeat(2, auto); /* Two rows */
+    gap: 1.5rem;
+    text-decoration: none;
+}
+subject-component {
+    width: 100%; /* Full width of the grid column */
+}  
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    right: 0;
+    display: none;
+    position: absolute;
+    background-color: var(--card-bg-color);
+    min-width: 16.25rem;
+    box-shadow: 0 0.5rem 1rem 0 rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  .dropdown-name{
+    padding: 0.75rem 1rem;
+  }
+  
+  .dropdown-links{
+    display: flex;
+    flex-direction: column;
+  }
+  .dropdown-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    gap:0.5rem;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: var(--accent-color);
+    box-shadow: 0 0 1em var(--accent-color);
+  }
+  
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  .avatar {
+    vertical-align: middle;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+  }

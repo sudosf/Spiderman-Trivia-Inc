@@ -1,4 +1,4 @@
-import { Links, Images } from '../common/constants.js';
+import { Images } from '../common/constants.js';
 import APICall from '../common/APICall.js';
 
 class Subjects extends HTMLElement {
