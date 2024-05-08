@@ -6,9 +6,9 @@ const progressBar = document.getElementById('progress-bar');
 const questionsCount = document.getElementById('current-question');
 const submitBtn = document.getElementById('submit')
 const BUTTONS_IDs = [];
-let SCORE=0;
-let CURRENT_ANSWER;
-let QUESTION_INDEX = 0;
+let score=0;
+let currentAnswer;
+let questionIndex = 0;
 let isAnswered = false;
 const rootElement = document.documentElement;
 var _apiCall = new APICall();
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded',()=>{
                 BUTTONS_IDs.push(btn.id);
             });
         
-            setOptions(questions[QUESTION_INDEX]);
+            setOptions(questions[questionIndex]);
         })
         .catch(error=>{
             console.error('Error while loading quiz : '+error);
@@ -37,11 +37,11 @@ optionButtons.forEach(btn => {
         optionButtons.forEach(buttonElemet => {
             buttonElemet.querySelector('button').classList.remove('btn-options-clicked');
         });
-        if(clickedButtonId=="submit" &&QUESTION_INDEX===10){
+        if(clickedButtonId=="submit" &&questionIndex===10){
             clearSelectedButtons();
             const body = {
                 subject_id:getSubjectId(),
-                score:SCORE
+                score:score
             };
             _apiCall.makePostRequest('attempts',body)
                 .then(response=>{
@@ -50,16 +50,16 @@ optionButtons.forEach(btn => {
                 .catch(err=>{
                     alert(`An error occured while saving attempt\n${err}`);
                 })
-            QUESTION_INDEX +=1;
+            questionIndex +=1;
             return;
-        }else if(QUESTION_INDEX>=10){
+        }else if(questionIndex>=10){
             clearSelectedButtons();
             return;
         }
         
         if(clickedButtonId=="submit" && !isAnswered){
-            if(CURRENT_ANSWER!==undefined && questions[QUESTION_INDEX].options[BUTTONS_IDs.indexOf(CURRENT_ANSWER)]==questions[QUESTION_INDEX].answer){
-                const correctBtn = document.getElementById(CURRENT_ANSWER).querySelector('button');
+            if(currentAnswer!==undefined && questions[questionIndex].options[BUTTONS_IDs.indexOf(currentAnswer)]==questions[questionIndex].answer){
+                const correctBtn = document.getElementById(currentAnswer).querySelector('button');
                 
                 const asideElement = correctBtn.querySelector('.btn-left');
 
@@ -70,11 +70,11 @@ optionButtons.forEach(btn => {
                 correctBtn.classList.add('btn-options-correct')
         
                 asideElement.insertAdjacentElement('afterend', imgElement);
-                SCORE +=1;
+                score +=1;
                 changeSubmitButton();
 
-            }else if(CURRENT_ANSWER!==undefined){
-                const wrongBtn = document.getElementById(CURRENT_ANSWER).querySelector('button');
+            }else if(currentAnswer!==undefined){
+                const wrongBtn = document.getElementById(currentAnswer).querySelector('button');
                 const asideElement = wrongBtn.querySelector('.btn-left');
                 const imgElement = document.createElement('img');
                 imgElement.classList.add('btn-right');
@@ -82,7 +82,7 @@ optionButtons.forEach(btn => {
                 wrongBtn.classList.add('btn-options-wrong')
                 asideElement.insertAdjacentElement('afterend', imgElement);
                 
-                const correctAnswerIndex = questions[QUESTION_INDEX].options.indexOf(questions[QUESTION_INDEX].answer);
+                const correctAnswerIndex = questions[questionIndex].options.indexOf(questions[questionIndex].answer);
                 const correctAnserId = BUTTONS_IDs[correctAnswerIndex];
                 const correctBtn = document.getElementById(correctAnserId);
                 const asideElementCorrect = correctBtn.querySelector('.btn-left');
@@ -97,11 +97,11 @@ optionButtons.forEach(btn => {
             }
             return;
         }else if(clickedButtonId=="submit" && isAnswered){
-            setOptions(questions[QUESTION_INDEX]);
+            setOptions(questions[questionIndex]);
             return;
         }
 
-        CURRENT_ANSWER = clickedButtonId;
+        currentAnswer = clickedButtonId;
 
         button.classList.toggle('btn-options-clicked');
 
@@ -119,10 +119,10 @@ function setOptions(Questions) {
         button.classList.remove('btn-options-correct');
     });
     
-    CURRENT_ANSWER=undefined;
+    currentAnswer=undefined;
     promptQuestion.innerText = Questions.question;
-    progressBar.setAttribute('value',QUESTION_INDEX+1)
-    questionsCount.innerText = QUESTION_INDEX+1;
+    progressBar.setAttribute('value',questionIndex+1)
+    questionsCount.innerText = questionIndex+1;
     BUTTONS_IDs.forEach((id, i) => {
         const opt = document.getElementById(id);
         const paragraphs = opt.querySelectorAll('p');
@@ -137,13 +137,13 @@ function setOptions(Questions) {
 }
 
 function changeSubmitButton(){
-    QUESTION_INDEX +=1;
+    questionIndex +=1;
     const pTags = submitBtn.querySelector('p');
     pTags.innerText ='';
-    pTags.innerText = QUESTION_INDEX>=10?`Done `:'Next Question';
+    pTags.innerText = questionIndex>=10?`Done `:'Next Question';
     isAnswered = true;
-    if(QUESTION_INDEX===10){
-        alert(`Quiz complete\nScore : ${SCORE}/${questions.length}`);
+    if(questionIndex===10){
+        alert(`Quiz complete\nscore : ${score}/${questions.length}`);
     }//To implement a nice ui
 }
 
