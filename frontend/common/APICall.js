@@ -17,23 +17,26 @@ class APICall{
         };
 
         return new Promise((resolve, reject) => {
+            console.log(`GET : ${Links.serverBaseURL}/${path}`)
+            console.log(options);
             fetch(`${Links.serverBaseURL}/${path}`, options)
             .then(response => {
                 if (!response.ok) {
-                    if(response.status === 401){
+                    if (response.status === 401) {
                         localStorage.setItem('signedIn', "false");
                         window.location.replace('index.html');
-                    } else if(response.status === 404){
+                    } else if (response.status === 404) {
                         window.location.replace('404.html');
-                    } else {
-                        reject(new Error('Network response was not ok'));
                     }
-                    return;
                 }
                 return response.json();
             })
             .then(data => {
-                resolve(data);
+                if (data?.message) {
+                    reject(new Error(data?.message));
+                  } else {
+                    resolve(data);
+                  }
             })
             .catch(error => {
                 reject(error);
@@ -52,20 +55,21 @@ class APICall{
             fetch(`${Links.serverBaseURL}/${path}`, options)
             .then(response => {
                 if (!response.ok) {
-                    if(response.status === 401){
+                    if (response.status === 401) {
                         localStorage.setItem('signedIn', "false");
                         window.location.replace('index.html');
-                    } else if(response.status === 404){
-                        throw new Error('Not found!!');//should redirect to 404 page
-                    } else {
-                        throw new Error('Network response was not ok');
+                    } else if (response.status === 404) {
+                        window.location.replace('404.html');
                     }
-                    return;
                 }
                 return response.json();
             })
             .then(data => {
-                resolve(data);
+                if (data?.message) {
+                    reject(new Error(data?.message));
+                  } else {
+                    resolve(data);
+                  }
             })
             .catch(error => {
                 reject(error);
