@@ -138,39 +138,7 @@ main {
         gap: 1rem;
         max-width: max(10vw, 40rem);
     }
-
-    /** Subjects on the homepage **/
-    .subject-container {
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
-
-        .subject-image {
-            width: 100%;
-            height: auto;
-        }
-
-        .subject-name {
-            color: var(--text-color);
-            background-color: var(--card-bg-color);
-            padding: 0.8rem;
-            height: 100%;
-        }
-    }
-
-    .subject-container:hover {
-        transform: scale(1.05);
-        box-shadow: 0 0 0.5rem var(--primary-color);
-    }
-
-    .subjects-container {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr); /* Two columns */
-        gap: 1.5rem;
-    }
 }
-
 
 footer {
     display: flex;
