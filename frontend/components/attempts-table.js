@@ -18,18 +18,18 @@ class Attempts extends HTMLElement {
                 if (res.data.length > 0) {
                     const attemptsHtml = res.data.map(({timestamp,score,subject_name}) => `
                         <tr>
-                            <td>${new Date(timestamp).toLocaleString('en-US', { day: 'numeric', year: 'numeric', month: 'numeric',  hour: '2-digit', minute: '2-digit' })}</td>
                             <td>${subject_name}</td>
                             <td>${score}</td>
+                            <td>${new Date(timestamp).toLocaleString('en-US', { day: 'numeric', year: 'numeric', month: 'numeric',  hour: '2-digit', minute: '2-digit' })}</td>
                         </tr>
                     `).join('');
     
                     this.innerHTML = `
                     <table class="attempts-table">
                         <tr>
-                            <th>timestamp</th>
                             <th>subject</th>
                             <th>score</th>
+                            <th>timestamp</th>
                         </tr>
                         ${attemptsHtml}
                     </table>
