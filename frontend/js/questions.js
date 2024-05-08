@@ -148,6 +148,7 @@ function setOptions(Questions) {
 
 function changeSubmitButton(){
     questionIndex +=1;
+    submitBtn.classList.remove('btn-options-clicked');
     const pTags = submitBtn.querySelector('p');
     pTags.innerText ='';
     pTags.innerText = questionIndex>=10?`Done `:'Next Question';
