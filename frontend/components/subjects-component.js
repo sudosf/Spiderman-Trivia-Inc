@@ -1,5 +1,6 @@
 import { Links, Images } from '../common/constants.js';
 import APICall from '../common/APICall.js';
+
 class Subjects extends HTMLElement {
     async connectedCallback() {
         // loading state
@@ -12,10 +13,10 @@ class Subjects extends HTMLElement {
         var _apiCall = new APICall();
         
         _apiCall.makeGetRequest('subjects')
-            .then(data=>{
+            .then(res=>{
  
-                if (data.data.length > 0) {
-                    const subjectsHtml = data.data.map(subject => `
+                if (res.data.length > 0) {
+                    const subjectsHtml = res.data.map(subject => `
                         <subject-component 
                         name="${subject.name}"
                         image-url="${subject.image_url}"
