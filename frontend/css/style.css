@@ -127,7 +127,6 @@ header {
 main {
     flex-wrap: wrap;
     justify-content: space-around;
-    align-items: center;
     align-content: baseline;
     flex: 1;
     gap: 2rem;
@@ -322,4 +321,23 @@ subject-component {
     width: 3rem;
     height: 3rem;
     border-radius: 50%;
+  }
+
+  .attempts-table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  .attempts-table td, .attempts-table th {
+    border: 0.063rem solid var(--card-bg-color);
+    padding: 1.25rem;
+  }
+  
+  .attempts-table tr:nth-child(even){background-color: var(--card-bg-color);}
+  
+  .attempts-table th {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    text-align: left;
+    background-color: var(--primary-color);
+    color: var(--light-color);
   }

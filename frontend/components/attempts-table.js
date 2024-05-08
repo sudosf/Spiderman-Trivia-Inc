@@ -1,0 +1,47 @@
+import { Images } from '../common/constants.js';
+import APICall from '../common/APICall.js';
+
+class Attempts extends HTMLElement {
+    async connectedCallback() {
+        // loading state
+        this.innerHTML = `
+            <section>
+                <img src=${Images.loading} alt="Loading..." class="loading-indicator" />
+            </section>
+        `;
+
+        var _apiCall = new APICall();
+        
+        _apiCall.makeGetRequest('attempts/me')
+            .then(res=>{
+                
+                if (res.data.length > 0) {
+                    const attemptsHtml = res.data.map(({timestamp,score,subject_name}) => `
+                        <tr>
+                            <td>${new Date(timestamp).toLocaleString('en-US', { day: 'numeric', year: 'numeric', month: 'numeric',  hour: '2-digit', minute: '2-digit' })}</td>
+                            <td>${subject_name}</td>
+                            <td>${score}</td>
+                        </tr>
+                    `).join('');
+    
+                    this.innerHTML = `
+                    <table class="attempts-table">
+                        <tr>
+                            <th>timestamp</th>
+                            <th>subject</th>
+                            <th>score</th>
+                        </tr>
+                        ${attemptsHtml}
+                    </table>
+                    `;
+                }else{
+                    this.innerHTML = `<section><p>No attempts available. Go and play and come back here.</p></section>`;
+                }
+            }).catch(error=>{
+                console.error('Failed to fetch your attempts:', error);
+                this.innerHTML = `<section><p>Error loading your attempts.</p></section>`;
+            })
+    }
+}
+
+customElements.define('attempts-table', Attempts);
