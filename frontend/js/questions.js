@@ -11,7 +11,6 @@ let score=0;
 let currentAnswer;
 let questionIndex = 0;
 let isAnswered = false;
-const rootElement = document.documentElement;
 var _apiCall = new APICall();
 let questions=[]
 
