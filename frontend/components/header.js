@@ -5,7 +5,7 @@ class Header extends HTMLElement {
     const links = User.signedIn === "true" 
                 ? ` <a href="leaderboard.html">leaderboard</a>
                     <a href="attempts.html">My attempts</a>
-                    <a href="logout.html">logout</a>`
+                    <a href="logout.html">Sign out</a>`
                 : `<a href="${Links.serverBaseURL}/auth/github">login</a>
                    `
     this.innerHTML = `
