@@ -24,7 +24,7 @@ class APICall{
                         localStorage.setItem('signedIn', "false");
                         window.location.replace('index.html');
                     } else if(response.status === 404){
-                        console.error('Not found!!');
+                        window.location.replace('404.html');
                     } else {
                         reject(new Error('Network response was not ok'));
                     }
