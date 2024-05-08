@@ -1,8 +1,8 @@
-import { Links, Icons } from '../common/constants.js';
+import { Links, Icons,User } from '../common/constants.js';
 
 class HomeContent extends HTMLElement {
   connectedCallback() {
-    if(localStorage.getItem('signedIn') === "true"){
+    if(User.signedIn === "true"){
         this.innerHTML = `
             <subjects-component></subjects-component>
     `;

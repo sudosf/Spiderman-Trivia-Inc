@@ -1,4 +1,4 @@
-import { Links, Images } from '../common/constants.js';
+import { Links, Images,User } from '../common/constants.js';
 
 class Subjects extends HTMLElement {
     async connectedCallback() {
@@ -9,13 +9,12 @@ class Subjects extends HTMLElement {
             </section>
         `;
 
-        const authToken = localStorage.getItem('authToken');
         try {
             const response = await fetch(`${Links.serverBaseURL}/subjects`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${authToken}`
+                    'Authorization': `Bearer ${User.authToken}`
                 }
             });
             const data = await response.json();
