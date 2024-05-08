@@ -16,8 +16,6 @@ class APICall{
         };
 
         return new Promise((resolve, reject) => {
-            console.log(`GET : ${Links.serverBaseURL}/${path}`)
-            console.log(options);
             fetch(`${Links.serverBaseURL}/${path}`, options)
             .then(response => {
                 if (!response.ok) {

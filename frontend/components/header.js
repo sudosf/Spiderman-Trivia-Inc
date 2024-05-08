@@ -1,7 +1,6 @@
 import { Icons,Links, User} from '../common/constants.js';
 class Header extends HTMLElement {
   connectedCallback() {
-    console.log(User);
     const links = User.signedIn === "true" 
                 ? ` <a href="leaderboard.html">leaderboard</a>
                     <a href="attempts.html">My attempts</a>
