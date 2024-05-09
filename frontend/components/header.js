@@ -4,7 +4,7 @@ class Header extends HTMLElement {
     connectedCallback() {
         const links =
             User.signedIn === 'true'
-                ? ` <a href="leaderboard.html">
+                ? ` <a href="leaderboard">
                         <img class="icon" src=${Icons.leaderboard} alt="theme-toggler" />
                         Leaderboard
                     </a>
@@ -24,7 +24,7 @@ class Header extends HTMLElement {
 
         this.innerHTML = `
             <header>
-                <a class="clickable" href="index.html">
+                <a class="clickable" href="/">
                     <img class="logo" src=${Icons.logo} alt="logo" />
                 </a>
 
@@ -33,7 +33,7 @@ class Header extends HTMLElement {
                     <div class="dropdown-content">
                         <h6 class="dropdown-name">Hello, ${User.username}</h6>
                         <div class="dropdown-links">
-                            <a href="index">
+                            <a href="/">
                                 <img class="icon" src=${Icons.home} alt="theme-toggler" />
                                 Home
                             </a>

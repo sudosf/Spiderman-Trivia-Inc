@@ -411,3 +411,30 @@ progress::-webkit-progress-bar {
 #subject-name{
     color: var(--primary-color);
   }
+
+.btn-complete{
+    justify-content: space-between;
+    align-items: center;
+    gap: 5rem;
+    border-radius: var(--btn-border-radius);
+    padding: 1rem 1.5rem;
+    width: 100%;
+    text-wrap: wrap;
+    font-weight: bold;
+    font-size: var(--step-0);
+}
+
+.complete-link{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--step-0);
+    line-height: 1.5rem;
+    border: none;
+    border-radius: var(--btn-border-radius);
+    margin: auto 0;
+    cursor: pointer;
+    color: var(--text-color);
+    background-color: var(--primary-color);
+    text-decoration: none;
+}
