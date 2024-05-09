@@ -10,12 +10,15 @@ class AttemptService {
     }
 
     async getAllAttempts() {
-        return await Attempt.findAll();
+        return await Attempt.findAll({
+            include: [{ model: Subject, attributes: ['name'], as:'subjects' }]
+        });
     }
 
     async getAttemptsByUserId(userId) {
         return await Attempt.findAll({
-            where: { user_id: userId }
+            where: { user_id: userId },
+            include: [{ model: Subject, attributes: ['name'], as:'subjects' }]
         });
     }
     

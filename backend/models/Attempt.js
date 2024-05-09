@@ -1,5 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
+const Subject = require('./Subject');
 
 class Attempt extends Model {}
 
@@ -41,4 +42,8 @@ Attempt.init({
   timestamps: false
 });
 
+Attempt.belongsTo(Subject, {
+  foreignKey: 'subject_id',
+  as: 'subjects'
+});
 module.exports = Attempt;

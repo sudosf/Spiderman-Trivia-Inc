@@ -101,6 +101,10 @@ p {
     font-size: var(--step-0);
 }
 
+a {
+    text-decoration: none;
+}
+
 button,
 .btn {
     display: inline-flex;
