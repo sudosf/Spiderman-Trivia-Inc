@@ -1,4 +1,4 @@
-import { appData } from "../common/appData";
+import { appData } from "../common/appData.js";
 
 class QuizComplete extends HTMLElement {
     constructor() {
