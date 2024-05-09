@@ -38,5 +38,11 @@ export const User = {
     username,
     authToken,
     signedIn,
-    profilePictureUrl,
-};
+    profilePictureUrl
+}
+
+export const Scripts =[
+    'js/questions.js',
+    'js/signout.js',
+    'js/callback.js'
+];

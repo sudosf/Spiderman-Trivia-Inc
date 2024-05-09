@@ -10,12 +10,7 @@
     <body id="body-container">
         <app-header></app-header>
 
-        <main>
-            <section>
-                <h1>Swing Into the Spider-Verse Trivia Challenge!</h1>
-                <home-text></home-text>
-            </section>
-            <home-content></home-content>
+        <main id="main-page">
         </main>
 
         <app-footer></app-footer>
@@ -29,6 +24,14 @@
         <script type="module" src="components/subject-component.js"></script>
         <script type="module" src="components/subjects-component.js"></script>
         
+        <!--Quiz Modules-->
+
+        <script type="module" src="components/optionsButton.js"></script>
+        <script type="module" src="common/constants.js"></script>
+
+        <!--<script src="js/callback.js"></script>-->
+        <script defer src="js/signout.js"></script>
         <script defer type="module" src="js/index.js"></script>
+        <script defer type="module" src="js/route.js"></script>
     </body>
 </html>
