@@ -10,7 +10,7 @@ class Footer extends HTMLElement {
             SpiderMan Trivia Inc.
             </p>
             
-            <img src=${Icons.github} alt='github'>
+            <img class="github" src=${Icons.github} alt='github'>
         </footer>
         `;
     }

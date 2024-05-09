@@ -1,33 +1,31 @@
-import { Icons } from '../common/constants.js';
-
-function escapeHTML(str) {
-  return str.replace(/[&<>"']/g, function (match) {
-      return {
-          '&': '&amp;',
-          '<': '&lt;',
-          '>': '&gt;',
-          '"': '&quot;',
-          "'": '&#39;'
-      }[match];
-  });
-}
-
+import { Icons,Links, User} from '../common/constants.js';
 class Header extends HTMLElement {
   connectedCallback() {
-    const rawUsername = localStorage.getItem('signedIn') === "true" ? localStorage.getItem('username') : "there";
-    const username = escapeHTML(rawUsername);
-
+    const links = User.signedIn === "true" 
+                ? ` <a href="leaderboard.html">leaderboard</a>
+                    <a href="attempts.html">My attempts</a>
+                    <a href="logout.html">Sign out</a>`
+                : `<a href="${Links.serverBaseURL}/auth/github">login</a>
+                   `
     this.innerHTML = `
-        <header>
-            <img src=${Icons.logo} alt="logo" />
-  
-            <aside>
-                <img id="theme-toggle-btn" src=${Icons.moon} alt="theme-toggler" />
-                <h6>Hello, ${username}</h6>
-            </aside>
-        </header>
+            <header>
+                <img class="logo" src=${Icons.logo} alt="logo" />
+                <div class="dropdown">
+                    <img src=${User.profilePictureUrl} alt="Avatar" class="avatar">
+                    <div class="dropdown-content">
+                        <h6 class="dropdown-name">Hello, ${User.username}</h6>
+                        <div class="dropdown-links">
+                            <a href="#" id="theme-toggle-btn"> 
+                                    <img class="moon" src=${Icons.moon} alt="theme-toggler" />
+                                    <span>dark mode</span>
+                                </a>
+                            ${links}
+                        </div>
+                    </div>
+                </div>
+            </header>
         `;
-    }
+  }
 }
 
 customElements.define('app-header', Header);
