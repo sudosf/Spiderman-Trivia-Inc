@@ -1,8 +1,8 @@
 function leaderboard(){
 
 
-    return` <article class="p-1" >
-                <section class="leaderboard flex flex-col gap-2 items-start">
+    return` <article class="p-1 leaderboard-container flex" >
+                <div class="leaderboard flex flex-col gap-2 items-start flex-1">
                 <h1 class="page-title w-full">Leaderboard</h1>
 
                 <div class="flex w-full gap-1 flex-wrap">
@@ -19,7 +19,7 @@ function leaderboard(){
                 <ol id="leaderboardList" class="leaderboard-list w-full flex flex-col">
                     <!-- Leaderboard items will be populated here -->
                 </ol>
-                </section>
+                </div>
             </article>`
 }
 
