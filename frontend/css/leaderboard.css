@@ -18,7 +18,7 @@
     display: flex;
     justify-content: space-between;
     padding: 0.5rem 1rem;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 0.0625rem solid #ddd;
   }
 
   .player-position{
@@ -41,7 +41,7 @@
 
 .leaderboard select {
     padding: 0.5rem;
-    border: 1px solid #ccc;
+    border: 0.0625rem solid #ccc;
     flex-grow: 1;
     border-radius: 0.2rem;
     width: 50%; /* Adjust width as needed */
@@ -53,7 +53,7 @@
   /* Style for input element */
   .leaderboard input[type="text"] {
     flex-grow: 1;
-    border: 1px solid #ccc;
+    border: 0.0625rem solid #ccc;
     border-radius: 0.5rem;
   }
 
@@ -73,7 +73,7 @@
     display: flex;
     justify-content: space-between;
     padding: 0.5rem 1rem;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 0.0625rem solid #ddd;
   }
   
   /* Style for player name and score */

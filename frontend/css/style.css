@@ -30,6 +30,10 @@
     --step-4: clamp(2.7994rem,2.4462rem + 1.7658vw, 3.8147rem); /* Step 5: 44.7898px → 61.0352px */
 }
 
+.spidey{
+    background-image: url("../assets/images/spiderman-light.png");
+}
+
 .dark-mode {
     --text-color: #fdfcfc;
     --bg-color: #181b1c;
@@ -37,6 +41,10 @@
     --secondary-color: #434a5a;
     --accent-color: #a5cad7;
     --card-bg-color: #202528;
+
+    .spidey{
+        background-image: url("../assets/images/spiderman-dark.png");
+    }
 
     .logo,
     .github {
@@ -119,6 +127,7 @@ button:hover,
 
 main,
 header {
+    /* padding: 0.5rem; */
     display: flex;
     margin: 2.5rem;
 }
@@ -126,7 +135,6 @@ header {
 header {
     justify-content: space-between;
     gap: 1rem;
-
     aside {
         display: flex;
         align-items: center;
