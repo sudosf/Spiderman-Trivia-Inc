@@ -30,8 +30,8 @@ document.addEventListener('DOMContentLoaded',()=>{
     
 })
 
-optionButtons.forEach(btn => {
-    btn.addEventListener('click', event => {
+optionButtons.forEach((btn) => {
+    btn.addEventListener('click', (event) => {
         const clickedButtonId = btn.id;
         const button = btn.querySelector('button');
         optionButtons.forEach((buttonElemet) => {
@@ -148,6 +148,7 @@ function setOptions(Questions) {
 
 function changeSubmitButton(){
     questionIndex +=1;
+    submitBtn.classList.remove('btn-options-clicked');
     const pTags = submitBtn.querySelector('p');
     pTags.innerText ='';
     pTags.innerText = questionIndex>=10?`Done `:'Next Question';

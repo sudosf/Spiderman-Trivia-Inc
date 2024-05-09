@@ -6,12 +6,17 @@ export const Links = {
 };
 
 export const Icons = {
+    home: 'assets/icons/home.svg',
     logo: 'assets/icons/logo.svg',
     github: 'assets/icons/github.svg',
     moon: 'assets/icons/moon.svg',
     sun: 'assets/icons/sun.svg',
     check: 'assets/icons/check.svg',
     cancel: 'assets/icons/X.svg',
+    signIn: 'assets/icons/signIn.svg',
+    signOut: 'assets/icons/signOut.svg',
+    leaderboard: 'assets/icons/leaderboard.svg',
+    tracking: 'assets/icons/tracking.svg',
 };
 
 export const Images = {
