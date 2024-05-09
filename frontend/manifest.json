@@ -1,0 +1,21 @@
+{
+  "name": "Spiderman Trivia Inc.",
+  "short_name": "SPT",
+  "start_url": ".",
+  "scope": "./",
+  "icons": [
+    {
+      "src": "assets/images/logo189x189.png",
+      "sizes": "189x189",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/images/logo512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#903634",
+  "background_color": "#434a5a",
+  "display": "standalone"
+}
