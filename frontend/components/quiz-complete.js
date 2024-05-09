@@ -1,3 +1,5 @@
+import { appData } from "../common/appData";
+
 class QuizComplete extends HTMLElement {
     constructor() {
         super();
@@ -5,8 +7,8 @@ class QuizComplete extends HTMLElement {
     }
 
     connectedCallback() {
-        const scoreType = this.getAttribute('score-type') || 'Classic';
-        const score = this.getAttribute('score') || '10 / 10';
+        const scoreType = appData.getStubjectName();
+        const score = appData.getScore();
 
         this.shadowRoot.innerHTML = `
             <article class="main-content quiz-complete">
