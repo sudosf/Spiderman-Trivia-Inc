@@ -6,7 +6,6 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/leaderboard.css"> 
   <link rel="stylesheet" href="css/utility-classes.css">
-  <!-- New CSS file for leaderboard styles -->
   <title>Leaderboard</title>
 </head>
 <body>
@@ -34,7 +33,6 @@
       </div>
      
       <ol id="leaderboardList" class="leaderboard-list w-full flex flex-col">
-        <!-- Leaderboard items will be populated here -->
       </ol>
     </section>
   </article>
@@ -54,16 +52,13 @@
       const searchInput = document.getElementById('searchInput');
       const leaderboardList = document.getElementById('leaderboardList');
 
-      // Function to fetch leaderboard data and update the HTML
       const fetchLeaderboard = async (subjectId) => {
         try {
           const response = await fetch(`http://localhost:3000/leaderboard/${subjectId}`);
           const data = await response.json();
 
-          // Clear the existing leaderboard list
           leaderboardList.innerHTML = '';
 
-          // Populate the leaderboard list with received data
           data.forEach((player, index) => {
             const listItem = document.createElement('li');
             listItem.innerHTML = `
@@ -75,17 +70,14 @@
           });
         } catch (error) {
           console.error('Error fetching leaderboard:', error);
-          // Optionally, display an error message to the user
         }
       };
 
-      // Event listener for subject select change
       subjectSelect.addEventListener('change', (event) => {
         const selectedSubjectId = event.target.value;
         fetchLeaderboard(selectedSubjectId);
       });
 
-        // Event listener for search input keyup
   searchInput.addEventListener('keyup', () => {
     const searchValue = searchInput.value.toLowerCase();
     const playerNames = leaderboardList.querySelectorAll('.player-name');
@@ -100,7 +92,6 @@
     });
   })
 
-      // Initial fetch of leaderboard data for the default subject
       const initialSubjectId = subjectSelect.value;
       fetchLeaderboard(initialSubjectId);
     });
