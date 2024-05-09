@@ -123,9 +123,9 @@ button:hover,
 
 main,
 header {
-    padding: 0.5rem;
+    /* padding: 0.5rem; */
     display: flex;
-    /* margin: 2.5rem; */
+    margin: 2.5rem;
 }
 
 header {
