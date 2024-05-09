@@ -10,8 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const apiClient = new APICall();
 
         const response = await apiClient.makeGetRequest(`leaderboard/${subjectId}`);
-        const data = await response.json();
-        console.table(data);
+        const data = await response.data;
 
         leaderboardList.innerHTML = '';
 
@@ -20,12 +19,12 @@ document.addEventListener('DOMContentLoaded', () => {
           listItem.innerHTML = `
             <span class="player-position">${index + 1}.</span>
             <span class="player-name">${player.username}</span>
-            <span class="player-score">${player.total_score}</span>
+            <span class="player-score">${player.average_score}</span>
           `;
           leaderboardList.appendChild(listItem);
         });
       } catch (error) {
-        alert('Error fetching leaderboard:', error);
+        console.log('Error fetching leaderboard:', error);
       }
     };
 
