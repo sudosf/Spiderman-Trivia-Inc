@@ -42,6 +42,18 @@
     .github {
         filter: invert(100%);
     }
+
+    .icon {
+        filter: none;
+    }
+
+    .moon {
+        display: none;
+    }
+
+    .sun {
+        display: block;
+    }
 }
 
 html,
@@ -149,6 +161,24 @@ footer {
     padding: 1rem 2rem;
     margin-top: auto;
     background-color: var(--card-bg-color);
+}
+
+.clickable {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Icons */
+.icon {
+    filter: invert(100%);
+}
+
+.moon {
+    display: block;
+}
+
+.sun {
+    display: none;
 }
 
 /* Button styles */

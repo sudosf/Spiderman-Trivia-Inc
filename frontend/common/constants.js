@@ -12,6 +12,10 @@ export const Icons = {
     sun: 'assets/icons/sun.svg',
     check: 'assets/icons/check.svg',
     cancel: 'assets/icons/X.svg',
+    signIn: 'assets/icons/signIn.svg',
+    signOut: 'assets/icons/signOut.svg',
+    leaderboard: 'assets/icons/leaderboard.svg',
+    tracking: 'assets/icons/tracking.svg',
 };
 
 export const Images = {
