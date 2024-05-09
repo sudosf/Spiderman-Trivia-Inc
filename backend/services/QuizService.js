@@ -1,4 +1,4 @@
-const { Sequelize, Op } = require('sequelize');
+const { Sequelize } = require('sequelize');
 const Question = require('../models/Question');
 const Subject = require('../models/Subject');
 const { NotFoundError } = require('../utils/errors');
