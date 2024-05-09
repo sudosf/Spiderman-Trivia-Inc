@@ -5,19 +5,26 @@ import CallbackComponent from "../components/main/callback.js";
 import LogoutComponent from "../components/main/logout.js";
 import { appData } from "../common/appData.js";
 import { Links, Scripts } from "../common/constants.js";
+import AttemptsComponent from "../components/main/attempts.js";
+import CompleteComponent from "../components/main/complete.js";
+import test from "../components/main/test.js";
 
 const routes = {
   '' : {component : HomeComponent,script : 'js/index.js'},
   'home' : {component : HomeComponent,script : 'js/index.js'},
   'quiz' : {component : QuizComponent,script : 'js/questions.js'},
-  '404': {component : NotFoundComponent,script : 'js/index.js'},
+  404: {component : NotFoundComponent,script : 'js/index.js'},
   'callback': {component : CallbackComponent,script : 'js/callback.js'},
-  'logout': {component : LogoutComponent,script : 'js/signout.js'},
+  'logout' : {component : LogoutComponent,script : 'js/signout.js'},
+  'attempts' : {component : AttemptsComponent},
+  'complete' : {component : CompleteComponent},
+  'test' : {component : test}
 };
 
 
 
 document.addEventListener('click', (event) => {
+    
     if (event.target.tagName.toLowerCase() === 'img' ||event.target.tagName.toLowerCase() === 'p') {
         event.preventDefault();
         const parentElement = event.target?.parentElement;
@@ -42,6 +49,16 @@ document.addEventListener('click', (event) => {
       }
       const path = new URL(event.target.href).pathname.slice(1);
       navigate(path);
+    }
+
+    if(event.target.tagName.toLowerCase()==='button' || event.target.tagName.toLowerCase()==='img' || event.target.tagName.toLowerCase()==='span'){
+      const parentElement = event.target?.parentElement;
+      if(parentElement.tagName.toLowerCase()==='a'){
+        const path = new URL(parentElement.href).pathname.slice(1);
+        navigate(path);
+      }
+      event.preventDefault();
+
     }
   });
 
@@ -72,14 +89,14 @@ function handlePopState(event) {
   navigate(path);
 }
 
-window.addEventListener('DOMContentLoaded', () => navigate(window.location.pathname.slice(1)));
+window.addEventListener('DOMContentLoaded', () => {
+  navigate(window.location.pathname.slice(1))
+});
 
 window.onload = function(){
-
   navigate(window.location.pathname.slice(1))
 }
 window.addEventListener('hashchange', function(event) {
-  console.log('loading...')
   navigate(window.location.pathname.slice(1))
 });
 

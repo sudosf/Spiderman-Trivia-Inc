@@ -1,16 +1,16 @@
-import { appData } from "../common/appData";
+import { appData } from "../common/appData.js";
 
 class QuizComplete extends HTMLElement {
-    constructor() {
+    /*constructor() {
         super();
         this.attachShadow({ mode: 'open' });
-    }
+    }*/
 
     connectedCallback() {
         const scoreType = appData.getStubjectName();
         const score = appData.getScore();
 
-        this.shadowRoot.innerHTML = `
+        this.innerHTML = `
             <article class="main-content quiz-complete">
                 <section class="quiz-info">
                     <h1>Quiz complete!</h1>
@@ -30,17 +30,17 @@ class QuizComplete extends HTMLElement {
                 <section class="score-container">
                     <div class="score-wrapper">
                         <p class="score-type">${scoreType}</p>
-                        <h1>${score}</h1>
+                        <h1>${score} / 10</h1>
                         <img src="./assets/images/meme.png" class="imgs" alt="meme">
-                        <button class="w-full flex justify-center bg-primary">View Leaderboard</button>
+                        <a href="leaderboard"><button class="w-full flex justify-center bg-primary">View Leaderboard</button></a>
                     </div>
                     <div class="button-container w-full flex flex-wrap gap-1">
-                        <button class="button past-attempts flex-1 flex justify-center">
+                        <a href="attempts"><button class="button past-attempts flex-1 flex justify-center">
                             <span><img src="./assets/icons/eye.svg" /></span>Attempts
-                        </button>
-                        <button class="button play-again flex-1 flex justify-center">
+                        </button></a>
+                        <a href="/"><button class="button play-again flex-1 flex justify-center">
                             <span><img class="white-icon" src="./assets/icons/arrow-right.svg" /></span>Play Again
-                        </button>
+                        </button></a>
                     </div>
                 </section>
             </article>

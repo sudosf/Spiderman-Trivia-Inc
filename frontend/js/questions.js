@@ -1,5 +1,6 @@
 import APICall from "../common/APICall.js";
 import { appData } from "../common/appData.js";
+import CompleteComponent from "../components/main/complete.js";
 
 let optionButtons;
 let promptQuestion;
@@ -7,7 +8,7 @@ let progressBar;
 let questionsCount;
 let submitBtn ;
 
-const BUTTONS_IDs = [];
+let BUTTONS_IDs = [];
 let score=0;
 let currentAnswer;
 let questionIndex = 0;
@@ -21,18 +22,18 @@ document.addEventListener('click', (event) => {
       if (parentElement.tagName.toLowerCase()==='a' && parentElement.href.includes('quiz')) {
         _apiCall.makeGetRequest(`quiz/start/${getSubjectId()}`)
         .then(response =>{
+            console.log(response);
             questions = response.data;
             optionButtons = document.querySelectorAll('options-btn');
             promptQuestion = document.getElementById('prompt-quetions');
             progressBar = document.getElementById('progress-bar');
             questionsCount = document.getElementById('current-question');
             submitBtn = document.getElementById('submit');
-                
                 optionButtons.forEach(btn => BUTTONS_IDs.push(btn.id));
                 setOptions(questions[questionIndex]);
                 attachOptionButtonListeners();
                 document.getElementById('subject-name').innerText = getSubjectName();
-
+            
         })
         .catch(error=>{
             console.error('Error while loading quiz : '+error);
@@ -51,9 +52,10 @@ function attachOptionButtonListeners() {
                         .querySelector('button')
                         .classList.remove('btn-options-clicked');
                 });
+                
                 if(clickedButtonId=="submit" &&questionIndex===10){
                     clearSelectedButtons();
-                    saveAttempt();
+                    //saveAttempt();
                     questionIndex +=1;
                     return;
                 }else if(questionIndex>=10){
@@ -141,6 +143,7 @@ function setOptions(Questions) {
     progressBar.setAttribute('value',questionIndex+1)
     questionsCount.innerText = questionIndex+1;
     BUTTONS_IDs.forEach((id, i) => {
+        console.log(Questions.options[i])
         const opt = document.getElementById(id);
         const paragraphs = opt.querySelectorAll('p');
         if (id == 'submit') {
@@ -160,7 +163,14 @@ function changeSubmitButton(){
     pTags.innerText = questionIndex>=10?`Done `:'Next Question';
     isAnswered = true;
     if(questionIndex===10){
-        alert(`Quiz complete\nscore : ${appData.getScore()}/${questions.length}`);
+        const completeQuiz = document.createElement('a');
+        completeQuiz.href = 'complete';
+        completeQuiz.innerText = 'Done';
+        completeQuiz.classList.add('btn-complete');
+        completeQuiz.classList.add('complete-link')
+        submitBtn.parentNode.replaceChild(completeQuiz, submitBtn);
+        saveAttempt();
+        initialize();
     }
 }
 
@@ -190,9 +200,17 @@ function saveAttempt(){
     };
     _apiCall.makePostRequest('attempts',body)
         .then(response=>{
-            alert("attempt saved");
+            
         })
         .catch(err=>{
             alert(`An error occured while saving attempt\n${err}`);
         })
+}
+
+function initialize(){
+    currentAnswer = undefined;
+    questionIndex = 0;
+    isAnswered = false;
+    questions=[];
+    BUTTONS_IDs =[];
 }
