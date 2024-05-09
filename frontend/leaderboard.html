@@ -17,7 +17,6 @@
       <h3>Hello, There</h3>
     </aside>
   </header>
-
   <article class="p-1" >
     <section class="leaderboard flex flex-col gap-2 items-start">
       <h1 class="page-title w-full">Leaderboard</h1>
@@ -48,62 +47,6 @@
     <img src="assets/icons/github.svg" alt="GitHub">
   </footer>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const subjectSelect = document.getElementById('subjectSelect');
-      const searchInput = document.getElementById('searchInput');
-      const leaderboardList = document.getElementById('leaderboardList');
-
-      // Function to fetch leaderboard data and update the HTML
-      const fetchLeaderboard = async (subjectId) => {
-        try {
-          const response = await fetch(`http://localhost:3000/leaderboard/${subjectId}`);
-          const data = await response.json();
-
-          // Clear the existing leaderboard list
-          leaderboardList.innerHTML = '';
-
-          // Populate the leaderboard list with received data
-          data.forEach((player, index) => {
-            const listItem = document.createElement('li');
-            listItem.innerHTML = `
-              <span class="player-position">${index + 1}.</span>
-              <span class="player-name">${player.username}</span>
-              <span class="player-score">${player.total_score}</span>
-            `;
-            leaderboardList.appendChild(listItem);
-          });
-        } catch (error) {
-          console.error('Error fetching leaderboard:', error);
-          // Optionally, display an error message to the user
-        }
-      };
-
-      // Event listener for subject select change
-      subjectSelect.addEventListener('change', (event) => {
-        const selectedSubjectId = event.target.value;
-        fetchLeaderboard(selectedSubjectId);
-      });
-
-        // Event listener for search input keyup
-  searchInput.addEventListener('keyup', () => {
-    const searchValue = searchInput.value.toLowerCase();
-    const playerNames = leaderboardList.querySelectorAll('.player-name');
-    playerNames.forEach((playerName) => {
-      const playerNameText = playerName.textContent.toLowerCase();
-      const listItem = playerName.parentElement;
-      if (playerNameText.includes(searchValue)) {
-        listItem.style.display = 'flex';
-      } else {
-        listItem.style.display = 'none';
-      }
-    });
-  })
-
-      // Initial fetch of leaderboard data for the default subject
-      const initialSubjectId = subjectSelect.value;
-      fetchLeaderboard(initialSubjectId);
-    });
-  </script>
+  <script type="module" src="js/leaderboard.js" ></script>
 </body>
 </html>
