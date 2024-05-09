@@ -12,6 +12,7 @@ const subjectsRoutes = require('./routes/SubjectRoutes');
 const attemptsRoutes = require('./routes/AttemptRoutes');
 const quizRoutes = require('./routes/QuizRoutes');
 const authRoutes = require('./routes/AuthRoutes');
+const leaderboardRoutes = require('./routes/LeaderboardRoutes');
 
 const app = express();
 
@@ -26,6 +27,7 @@ app.use('/api/users', verifyToken, usersRoutes);
 app.use('/api/subjects', verifyToken, subjectsRoutes);
 app.use('/api/attempts', verifyToken, attemptsRoutes);
 app.use('/api/quiz', verifyToken, quizRoutes);
+app.use('/api/leaderboard', verifyToken, leaderboardRoutes);
 
 sequelize.sync({ force: false }).then(() => {
     logger.info('Database connected and models synchronized');
