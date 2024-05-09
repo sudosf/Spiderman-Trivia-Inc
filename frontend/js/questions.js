@@ -143,7 +143,9 @@ function setOptions(Questions) {
     progressBar.setAttribute('value',questionIndex+1)
     questionsCount.innerText = questionIndex+1;
     BUTTONS_IDs.forEach((id, i) => {
-        console.log(Questions.options[i])
+        if(i>=5){
+            return;
+        }
         const opt = document.getElementById(id);
         const paragraphs = opt.querySelectorAll('p');
         if (id == 'submit') {
@@ -211,6 +213,6 @@ function initialize(){
     currentAnswer = undefined;
     questionIndex = 0;
     isAnswered = false;
-    questions=[];
-    BUTTONS_IDs =[];
+    questions.length=0;
+    BUTTONS_IDs.length =0;
 }
