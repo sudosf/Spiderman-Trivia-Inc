@@ -93,6 +93,10 @@ p {
     font-size: var(--step-0);
 }
 
+a {
+    text-decoration: none;
+}
+
 button,
 .btn {
     display: inline-flex;
@@ -180,6 +184,7 @@ footer {
 .sun {
     display: none;
 }
+
 
 /* Button styles */
 .btn-sign-in {
