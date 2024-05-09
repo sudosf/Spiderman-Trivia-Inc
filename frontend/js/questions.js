@@ -30,8 +30,8 @@ document.addEventListener('DOMContentLoaded',()=>{
     
 })
 
-optionButtons.forEach(btn => {
-    btn.addEventListener('click', event => {
+optionButtons.forEach((btn) => {
+    btn.addEventListener('click', (event) => {
         const clickedButtonId = btn.id;
         const button = btn.querySelector('button');
         optionButtons.forEach((buttonElemet) => {

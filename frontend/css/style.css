@@ -27,7 +27,7 @@
     --step-1: clamp(1.125rem, 1.2761rem + 0.3696vw, 1.3rem); /* Step 1: 18px → 20px */
     --step-2: clamp(1.62rem, 1.5041rem + 0.5793vw, 1.9531rem); /* Step 2: 25.92px → 31.25px */
     --step-3: clamp(1.944rem, 1.771rem + 0.8651vw, 2.4414rem); /* Step 3: 31.104px → 39.0625px */
-    --step-4: clamp(2.7994rem,2.4462rem + 1.7658vw,3.8147rem); /* Step 5: 44.7898px → 61.0352px */
+    --step-4: clamp(2.7994rem,2.4462rem + 1.7658vw, 3.8147rem); /* Step 5: 44.7898px → 61.0352px */
 }
 
 .dark-mode {
@@ -38,11 +38,11 @@
     --accent-color: #a5cad7;
     --card-bg-color: #202528;
 
-    .logo, .github {
+    .logo,
+    .github {
         filter: invert(100%);
     }
 }
-
 
 html,
 body {
@@ -81,7 +81,8 @@ p {
     font-size: var(--step-0);
 }
 
-button, .btn {
+button,
+.btn {
     display: inline-flex;
     align-items: center;
     font-size: var(--step-0);
@@ -95,8 +96,8 @@ button, .btn {
     text-decoration: none;
 }
 
-
-button:hover, .btn:hover {
+button:hover,
+.btn:hover {
     background-color: var(--accent-color);
 }
 
@@ -148,7 +149,6 @@ footer {
     padding: 1rem 2rem;
     margin-top: auto;
     background-color: var(--card-bg-color);
-
 }
 
 /* Button styles */
@@ -175,7 +175,7 @@ footer {
 
     transition:
         transform 0.3s,
-        box-shadow 0.3s; 
+        box-shadow 0.3s;
 }
 
 .btn-options-correct {
@@ -214,7 +214,6 @@ footer {
 }
 /* END: Button styles */
 
-
 progress {
     width: 85%;
     height: 1.2em;
@@ -244,117 +243,125 @@ progress::-webkit-progress-bar {
 .subject-container {
     display: flex;
     flex-direction: column;
-    box-shadow: 0 0.25rem 0.5rem rgba(0,0,0,0.1);
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
     overflow: hidden;
     text-decoration: none;
 }
+
 .subject-image {
     width: 100%;
     height: auto;
     display: block;
 }
+
 .subject-name {
     color: var(--text-color);
     padding: 0.9rem;
     background-color: var(--card-bg-color);
     width: 100%;
 }
-.subject-container:hover{
+
+.subject-container:hover {
     transform: scale(1.05);
     box-shadow: 0 0 1em var(--primary-color);
 }
+
 .subjects-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* Two columns */
-    grid-template-rows: repeat(2, auto); /* Two rows */
     gap: 1.5rem;
     text-decoration: none;
 }
-subject-component {
+
+.subject-component {
     width: 100%; /* Full width of the grid column */
-}  
-  /* The container <div> - needed to position the dropdown content */
-  .dropdown {
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
     position: relative;
     display: inline-block;
-  }
-  
-  /* Dropdown Content (Hidden by Default) */
-  .dropdown-content {
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
     right: 0;
     display: none;
     position: absolute;
     background-color: var(--card-bg-color);
     min-width: 16.25rem;
-    box-shadow: 0 0.5rem 1rem 0 rgba(0,0,0,0.2);
+    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.2);
     z-index: 1;
-  }
-  .dropdown-name{
+}
+.dropdown-name {
     padding: 0.75rem 1rem;
-  }
-  
-  .dropdown-links{
+}
+
+.dropdown-links {
     display: flex;
     flex-direction: column;
-  }
-  .dropdown-links a {
+}
+.dropdown-links a {
     color: var(--text-color);
     text-decoration: none;
     padding: 0.75rem 1rem;
     display: flex;
     align-items: center;
-    gap:0.5rem;
-  }
-  
-  .dropdown-content a:hover {
+    gap: 0.5rem;
+}
+
+.dropdown-content a:hover {
     background-color: var(--accent-color);
     box-shadow: 0 0 1em var(--accent-color);
-  }
-  
-  /* Show the dropdown menu on hover */
-  .dropdown:hover .dropdown-content {
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
     display: block;
-  }
-  
-  .avatar {
+}
+
+.avatar {
     vertical-align: middle;
     width: 3rem;
     height: 3rem;
     border-radius: 50%;
-  }
+}
 
-  .attempts-table {
+.attempts-table {
     border-collapse: collapse;
     width: 100%;
-  }
-  .attempts-table td, .attempts-table th {
+}
+.attempts-table td,
+.attempts-table th {
     border: 0.063rem solid var(--card-bg-color);
     padding: 1.25rem;
-  }
-  
-  .attempts-table tr:nth-child(even){background-color: var(--card-bg-color);}
-  
-  .attempts-table th {
+}
+
+.attempts-table tr:nth-child(even) {
+    background-color: var(--card-bg-color);
+}
+
+.attempts-table th {
     padding-top: 0.75rem;
     padding-bottom: 0.75rem;
     text-align: left;
     background-color: var(--primary-color);
     color: var(--light-color);
-  }
-  .cards {
+}
+.cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(18.75rem, 1fr));
     gap: 1.5rem;
     margin-top: 2.5rem;
-  }
-  .card {
+}
+.card {
     box-shadow: 0 0.25rem 0.5rem 0 rgba(0, 0, 0, 0.2);
     padding: 1.875rem;
     display: flex;
-    gap:1.25rem;
+    gap: 1.25rem;
     background-color: var(--card-bg-color);
     justify-content: space-between;
-  }
-.card:hover{
+}
+.card:hover {
     box-shadow: 0 0 1em var(--accent-color);
 }
