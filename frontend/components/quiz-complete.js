@@ -1,17 +1,13 @@
 import { appData } from "../common/appData.js";
 
 class QuizComplete extends HTMLElement {
-    /*constructor() {
-        super();
-        this.attachShadow({ mode: 'open' });
-    }*/
 
     connectedCallback() {
         const scoreType = appData.getStubjectName();
         const score = appData.getScore();
 
         this.innerHTML = `
-            <article class="main-content quiz-complete">
+            <article class="quiz-complete">
                 <section class="quiz-info">
                     <h1>Quiz complete!</h1>
                     <div class="spidey"></div>
@@ -35,10 +31,10 @@ class QuizComplete extends HTMLElement {
                         <a href="leaderboard"><button class="w-full flex justify-center bg-primary">View Leaderboard</button></a>
                     </div>
                     <div class="button-container w-full flex flex-wrap gap-1">
-                        <a href="attempts"><button class="button past-attempts flex-1 flex justify-center">
+                        <a href="attempts" class="flex-1"><button class="button past-attempts  w-full flex justify-center">
                             <span><img src="./assets/icons/eye.svg" /></span>Attempts
                         </button></a>
-                        <a href="/"><button class="button play-again flex-1 flex justify-center">
+                        <a href="/" class="flex-1"><button class="button play-again  w-full flex justify-center">
                             <span><img class="white-icon" src="./assets/icons/arrow-right.svg" /></span>Play Again
                         </button></a>
                     </div>
