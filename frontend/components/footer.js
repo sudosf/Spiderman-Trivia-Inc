@@ -10,9 +10,8 @@ class Footer extends HTMLElement {
             SpiderMan Trivia Inc.
             </p>
             
-            <a href=${Links.SourceCode} target="_blank">
+            <a target="_blank">
                 <img class="github clickable" src=${Icons.github} alt='github'>
-                <img class="icon clickable" src=${Icons.external} alt='external_link'>
             </a>
         </footer>
         `;
