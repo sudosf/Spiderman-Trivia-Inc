@@ -4,29 +4,31 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="css/style.css" />
-        <title>Home</title>
+        <title>My attempts</title>
     </head>
     <body id="body-container">
         <app-header></app-header>
 
         <main>
             <section>
-                <h1>Swing Into the Spider-Verse Trivia Challenge!</h1>
-                <home-text></home-text>
+                <h1>My attempts</h1>
+                <p>
+                    Take a look at your past heroics! Here you can review all
+                    your trivia attempts, see your scores, and learn from the
+                    past to conquer future challenges. Ready to swing higher?
+                </p>
+                <attempts-stats></attempts-stats>
             </section>
-            <home-content></home-content>
+            <attempts-table></attempts-table>
         </main>
 
         <app-footer></app-footer>
-        
+
         <!-- Modules -->
         <script type="module" src="components/header.js"></script>
         <script type="module" src="components/footer.js"></script>
-        <script type="module" src="components/home-text.js"></script>
-        <script type="module" src="components/home-content.js"></script>
-        <script type="module" src="components/subject-component.js"></script>
-        <script type="module" src="components/subjects-component.js"></script>
-        
+        <script type="module" src="components/attempts-stats.js"></script>
+        <script type="module" src="components/attempts-table.js"></script>
         <script defer src="js/index.js"></script>
     </body>
 </html>
