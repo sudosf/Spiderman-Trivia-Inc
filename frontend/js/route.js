@@ -7,7 +7,7 @@ import { appData } from "../common/appData.js";
 import { Links, Scripts } from "../common/constants.js";
 import AttemptsComponent from "../components/main/attempts.js";
 import CompleteComponent from "../components/main/complete.js";
-import test from "../components/main/test.js";
+import LeaderboardComponent from "../components/main/leaderboard.js";
 
 const routes = {
   '' : {component : HomeComponent,script : 'js/index.js'},
@@ -18,7 +18,7 @@ const routes = {
   'logout' : {component : LogoutComponent,script : 'js/signout.js'},
   'attempts' : {component : AttemptsComponent},
   'complete' : {component : CompleteComponent},
-  'test' : {component : test}
+  'leaderboard' : {component : LeaderboardComponent}
 };
 
 
