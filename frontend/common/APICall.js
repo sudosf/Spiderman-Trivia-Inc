@@ -21,9 +21,9 @@ class APICall{
                 if (!response.ok) {
                     if (response.status === 401) {
                         localStorage.setItem('signedIn', "false");
-                        window.location.replace('index.html');
+                        window.location.replace('/');
                     } else if (response.status === 404) {
-                        window.location.replace('404.html');
+                        window.location.replace('404');
                     }
                 }
                 return response.json();

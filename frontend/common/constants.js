@@ -30,3 +30,9 @@ export const User = {
     signedIn,
     profilePictureUrl
 }
+
+export const Scripts =[
+    'js/questions.js',
+    'js/signout.js',
+    'js/callback.js'
+];

@@ -322,3 +322,7 @@ subject-component {
     height: 3rem;
     border-radius: 50%;
   }
+
+  #subject-name{
+    color: var(--primary-color);
+  }
