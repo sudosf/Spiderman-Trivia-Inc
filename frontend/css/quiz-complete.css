@@ -70,6 +70,8 @@ button {
     cursor: pointer;
     transition: all 0.3s ease;
     color: white;
+    max-width: 100%;
+    min-width: 10rem;
 
   }
 
