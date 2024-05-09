@@ -16,7 +16,7 @@ class Attempts extends HTMLElement {
             .then(res=>{
                 
                 if (res.data.length > 0) {
-                    const attemptsHtml = res.data.map(({timestamp,score,subject_name}) => `
+                    const attemptsHtml = res.data.map(({timestamp,score,name:subject_name}) => `
                         <tr>
                             <td>${subject_name}</td>
                             <td>${score}</td>

@@ -6,6 +6,7 @@ export const Links = {
 };
 
 export const Icons = {
+    home: 'assets/icons/home.svg',
     logo: 'assets/icons/logo.svg',
     github: 'assets/icons/github.svg',
     moon: 'assets/icons/moon.svg',
