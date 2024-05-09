@@ -64,12 +64,12 @@ document.addEventListener('click', (event) => {
 
 
 const navigate = async (path) => {
-
   if(path.includes('api/auth/github')){
-    const content = await (typeof LogoutComponent === 'function' ? route() : fetch(path).then(data => data.text()));
-    document.getElementById('main-page').innerHTML = content;
     window.location.replace(`${Links.serverBaseURL}/auth/github`);
+    return;
   }
+
+
 
   const componentPath = routes[path.split('#')[0]]?.component;
   const route = componentPath || NotFoundComponent;
