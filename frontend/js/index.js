@@ -40,5 +40,3 @@ function toggleDarkMode(isDarkMode) {
         rootElement.classList.remove('dark-mode');
     }
 }
-
-});

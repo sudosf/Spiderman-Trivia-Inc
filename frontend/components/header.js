@@ -33,11 +33,11 @@ class Header extends HTMLElement {
                     <div class="dropdown-content">
                         <h6 class="dropdown-name">Hello, ${User.username}</h6>
                         <div class="dropdown-links">
-                            <a href="index.html">
+                            <a href="index">
                                 <img class="icon" src=${Icons.home} alt="theme-toggler" />
                                 Home
                             </a>
-                            <a href="#" id="theme-toggle-btn"> 
+                            <a id="theme-toggle-btn"> 
                                     <img class="sun" src=${Icons.sun} alt="theme-toggler" />
                                     <img class="moon" src=${Icons.moon} alt="theme-toggler" />
                                     <span>Color Theme</span>
