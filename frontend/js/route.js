@@ -8,10 +8,11 @@ import { Links, Scripts } from "../common/constants.js";
 
 const routes = {
   '' : {component : HomeComponent,script : 'js/index.js'},
+  'home' : {component : HomeComponent,script : 'js/index.js'},
   'quiz' : {component : QuizComponent,script : 'js/questions.js'},
   '404': {component : NotFoundComponent,script : 'js/index.js'},
   'callback': {component : CallbackComponent,script : 'js/callback.js'},
-  'logout': {component : LogoutComponent,script : 'js/signout.js'}
+  'logout': {component : LogoutComponent,script : 'js/signout.js'},
 };
 
 
@@ -48,6 +49,8 @@ document.addEventListener('click', (event) => {
 const navigate = async (path) => {
 
   if(path.includes('api/auth/github')){
+    const content = await (typeof LogoutComponent === 'function' ? route() : fetch(path).then(data => data.text()));
+    document.getElementById('main-page').innerHTML = content;
     window.location.replace(`${Links.serverBaseURL}/auth/github`);
   }
 
