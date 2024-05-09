@@ -16,9 +16,9 @@ class Attempts extends HTMLElement {
             .then(res=>{
                 
                 if (res.data.length > 0) {
-                    const attemptsHtml = res.data.map(({timestamp,score,name:subject_name}) => `
+                    const attemptsHtml = res.data.map(({timestamp,score,subjects}) => `
                         <tr>
-                            <td>${subject_name}</td>
+                            <td>${subjects.name}</td>
                             <td>${score}</td>
                             <td>${new Date(timestamp).toLocaleString('en-US', { day: 'numeric', year: 'numeric', month: 'numeric',  hour: '2-digit', minute: '2-digit' })}</td>
                         </tr>
