@@ -6,7 +6,7 @@ class Header extends HTMLElement {
             User.signedIn === 'true'
                 ? ` <a href="leaderboard.html">
                         <img class="icon" src=${Icons.leaderboard} alt="theme-toggler" />
-                        leaderboard
+                        Leaderboard
                     </a>
                     <a href="attempts.html">
                         <img class="icon" src=${Icons.tracking} alt="theme-toggler" />
@@ -40,7 +40,7 @@ class Header extends HTMLElement {
                             <a href="#" id="theme-toggle-btn"> 
                                     <img class="sun" src=${Icons.sun} alt="theme-toggler" />
                                     <img class="moon" src=${Icons.moon} alt="theme-toggler" />
-                                    <span>dark mode</span>
+                                    <span>Color Theme</span>
                                 </a>
                             ${links}
                         </div>
