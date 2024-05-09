@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="assets/icons/logo.svg" type="image/x-icon">
         <link rel="stylesheet" href="css/style.css" />
         <title>Home</title>
     </head>
@@ -15,6 +16,7 @@
         <app-footer></app-footer>
         
         <!-- Modules -->
+        <script type="module" src="common/utils.js"></script>
         <script type="module" src="components/header.js"></script>
         <script type="module" src="components/footer.js"></script>
         <script type="module" src="components/home-text.js"></script>
@@ -29,7 +31,7 @@
 
         <!--<script src="js/callback.js"></script>-->
         <script defer src="js/signout.js"></script>
-        <script defer src="js/index.js"></script>
+        <script defer type="module" src="js/index.js"></script>
         <script defer type="module" src="js/route.js"></script>
     </body>
 </html>

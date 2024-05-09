@@ -1,0 +1,89 @@
+/* leaderboard.css */
+.leaderboard {
+    padding: 1rem;
+  }
+  
+  .leaderboard h1 {
+    text-align: center;
+    border-bottom: solid 0.2rem var(--primary-color);
+    text-align: left;
+  }
+  
+  .leaderboard-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .leaderboard-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    border-bottom: 0.0625rem solid #ddd;
+  }
+
+  .player-position{
+    margin-right: 1rem;
+    font-weight: bold;
+
+  }
+  
+  .player-name {
+    flex: 1;
+    font-weight: 600;
+  }
+  
+  .player-score {
+    margin-left: 2rem;
+    font-weight: 600;
+    color: var(--primary-color);
+  }
+  
+
+.leaderboard select {
+    padding: 0.5rem;
+    border: 0.0625rem solid #ccc;
+    flex-grow: 1;
+    border-radius: 0.2rem;
+    width: 50%; /* Adjust width as needed */
+    max-width: 100%; /* Set max-width if necessary */
+    min-width: 10rem;
+    flex: 1;
+  }
+  
+  /* Style for input element */
+  .leaderboard input[type="text"] {
+    flex-grow: 1;
+    border: 0.0625rem solid #ccc;
+    border-radius: 0.5rem;
+  }
+
+  #searchInput{
+    padding: 0.5rem;
+    flex: 2;
+    min-width: 10rem;
+  }
+  
+  /* Style for leaderboard list */
+  .leaderboard-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .leaderboard-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    border-bottom: 0.0625rem solid #ddd;
+  }
+  
+  /* Style for player name and score */
+  .player-name {
+    flex: 1;
+  }
+  
+  .player-score {
+    margin-left: 2rem;
+  }
+
+ 
+  

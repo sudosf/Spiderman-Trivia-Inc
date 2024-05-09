@@ -20,6 +20,8 @@ class APICall{
             .then(response => {
                 if (!response.ok) {
                     if (response.status === 401) {
+                        localStorage.removeItem('authToken');
+                        localStorage.removeItem('username');
                         localStorage.setItem('signedIn', "false");
                         window.location.replace('/');
                     } else if (response.status === 404) {

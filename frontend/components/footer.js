@@ -1,4 +1,4 @@
-import { Icons } from '../common/constants.js';
+import { Icons, Links } from '../common/constants.js';
 
 class Footer extends HTMLElement {
     connectedCallback() {
@@ -10,7 +10,10 @@ class Footer extends HTMLElement {
             SpiderMan Trivia Inc.
             </p>
             
-            <img class="github" src=${Icons.github} alt='github'>
+            <a href=${Links.SourceCode} target="_blank">
+                <img class="github clickable" src=${Icons.github} alt='github'>
+                <img class="icon clickable" src=${Icons.external} alt='external_link'>
+            </a>
         </footer>
         `;
     }
