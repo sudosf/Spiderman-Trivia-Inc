@@ -1,4 +1,4 @@
-import { escapeHTML } from './utils.js';
+import { escapeHTML, getFromLocalStorage } from './utils.js';
 
 export const Links = {
     serverBaseURL:
@@ -25,24 +25,23 @@ export const Images = {
     loading: 'assets/images/loading.gif',
 };
 
-const rawUsername = localStorage.getItem('username') || "there";
+const rawUsername = getFromLocalStorage('username') || 'there';
+
 const username = escapeHTML(rawUsername);
-const authToken = localStorage.getItem('authToken');
-const signedIn = localStorage.getItem('signedIn') || "false";
+
+const authToken = getFromLocalStorage('authToken');
+const signedIn = getFromLocalStorage('signedIn') || false;
+
 const profilePictureUrl =
     username === 'there'
-        ? `assets/images/default-avatar.jpeg`
+        ? 'assets/images/default-avatar.jpeg'
         : `https://github.com/${username}.png`;
 
 export const User = {
     username,
     authToken,
     signedIn,
-    profilePictureUrl
-}
+    profilePictureUrl,
+};
 
-export const Scripts =[
-    'js/questions.js',
-    'js/signout.js',
-    'js/callback.js'
-];
+export const Scripts = ['js/questions.js', 'js/signout.js', 'js/callback.js'];

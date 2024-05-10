@@ -17,10 +17,21 @@ export function saveToLocalStorage(key, value) {
     localStorage.setItem(key, JSON.stringify(value));
 }
 
+export function removeFromLocalStorage(key) {
+    localStorage.removeItem(key);
+}
+
 export function getFromLocalStorage(key) {
     const item = localStorage.getItem(key);
 
-    return item ? JSON.parse(item) : null;
+    let parsedItem;
+    try {
+        parsedItem = item ? JSON.parse(item) : null;
+    } catch (error) {
+        parsedItem = item;
+    }
+
+    return parsedItem;
 }
 
 export function isLocalStorageItemPresent(key) {

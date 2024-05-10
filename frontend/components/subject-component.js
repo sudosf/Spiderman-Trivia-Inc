@@ -5,7 +5,7 @@ class Subject extends HTMLElement {
         const subjectId = this.getAttribute('subject-id');
 
         this.innerHTML = `
-            <a href="quiz#${subjectId}-${name}" class="subject-container" title="Quiz | ${name}" id="startQuiz">
+            <a href="quiz#${subjectId}-${name}" class="subject-container clickable-spider" title="Quiz | ${name}" id="startQuiz">
                 <img class="subject-image" src="${imageUrl}" alt="Image of ${name}">
                 <p class="subject-name">${name}</p>
             </a>

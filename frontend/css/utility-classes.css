@@ -3,7 +3,7 @@
     flex: 1;
 }
 
-.my-style{
+.my-style {
     gap: 6rem;
 }
 
@@ -19,7 +19,7 @@
     flex-grow: 1;
 }
 
-.flex-wrap{
+.flex-wrap {
     flex-wrap: wrap;
 }
 /* Alignment Utilities */
@@ -74,7 +74,7 @@
     color: white;
 }
 
-.text-primary{
+.text-primary {
     color: var(--primary-color);
 }
 
@@ -128,8 +128,6 @@
 .p-4 {
     padding: 5rem;
 }
-
-
 
 .m-1 {
     margin: 1rem;

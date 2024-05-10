@@ -1,5 +1,5 @@
-function complete(){
-    return`  <quiz-complete></quiz-complete>`
+function complete() {
+    return `  <quiz-complete></quiz-complete>`;
 }
 
 export default complete;

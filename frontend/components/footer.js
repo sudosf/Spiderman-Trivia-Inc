@@ -1,4 +1,4 @@
-import { Icons, Links } from '../common/constants.js';
+import { Icons } from '../common/constants.js';
 
 class Footer extends HTMLElement {
     connectedCallback() {
@@ -11,7 +11,7 @@ class Footer extends HTMLElement {
             </p>
             
             <a target="_blank">
-                <img class="github clickable" src=${Icons.github} alt='github'>
+                <img class="github" src=${Icons.github} alt='github'>
             </a>
         </footer>
         `;

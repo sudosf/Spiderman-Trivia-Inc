@@ -1,15 +1,15 @@
-import { Links, User } from "./constants.js";
-class APICall{
+import { Links, User } from './constants.js';
+import { removeFromLocalStorage, saveToLocalStorage } from '../common/utils.js';
 
-    constructor(){
+class APICall {
+    constructor() {
         this.headers = new Headers({
-            'Authorization': `Bearer ${User.authToken}`,
+            Authorization: `Bearer ${User.authToken}`,
             'Content-Type': 'application/json',
         });
     }
-    
-    makeGetRequest(path) {
 
+    makeGetRequest(path) {
         const options = {
             method: 'GET',
             headers: this.headers,
@@ -17,29 +17,29 @@ class APICall{
 
         return new Promise((resolve, reject) => {
             fetch(`${Links.serverBaseURL}/${path}`, options)
-            .then(response => {
-                if (!response.ok) {
-                    if (response.status === 401) {
-                        localStorage.removeItem('authToken');
-                        localStorage.removeItem('username');
-                        localStorage.setItem('signedIn', "false");
-                        window.location.replace('/');
-                    } else if (response.status === 404) {
-                        window.location.replace('404');
+                .then((response) => {
+                    if (!response.ok) {
+                        if (response.status === 401) {
+                            removeFromLocalStorage('authToken');
+                            removeFromLocalStorage('username');
+                            saveToLocalStorage('signedIn', false);
+                            window.location.replace('/');
+                        } else if (response.status === 404) {
+                            window.location.replace('404');
+                        }
                     }
-                }
-                return response.json();
-            })
-            .then(data => {
-                if (data?.message) {
-                    reject(new Error(data?.message));
-                  } else {
-                    resolve(data);
-                  }
-            })
-            .catch(error => {
-                reject(error);
-            });
+                    return response.json();
+                })
+                .then((data) => {
+                    if (data?.message) {
+                        reject(new Error(data?.message));
+                    } else {
+                        resolve(data);
+                    }
+                })
+                .catch((error) => {
+                    reject(error);
+                });
         });
     }
 
@@ -52,27 +52,27 @@ class APICall{
 
         return new Promise((resolve, reject) => {
             fetch(`${Links.serverBaseURL}/${path}`, options)
-            .then(response => {
-                if (!response.ok) {
-                    if (response.status === 401) {
-                        localStorage.setItem('signedIn', "false");
-                        window.location.replace('index.html');
-                    } else if (response.status === 404) {
-                        window.location.replace('404.html');
+                .then((response) => {
+                    if (!response.ok) {
+                        if (response.status === 401) {
+                            saveToLocalStorage('signedIn', false);
+                            window.location.replace('index.html');
+                        } else if (response.status === 404) {
+                            window.location.replace('404.html');
+                        }
                     }
-                }
-                return response.json();
-            })
-            .then(data => {
-                if (data?.message) {
-                    reject(new Error(data?.message));
-                  } else {
-                    resolve(data);
-                  }
-            })
-            .catch(error => {
-                reject(error);
-            });
+                    return response.json();
+                })
+                .then((data) => {
+                    if (data?.message) {
+                        reject(new Error(data?.message));
+                    } else {
+                        resolve(data);
+                    }
+                })
+                .catch((error) => {
+                    reject(error);
+                });
         });
     }
 }

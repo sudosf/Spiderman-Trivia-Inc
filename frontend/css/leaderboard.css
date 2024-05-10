@@ -1,90 +1,85 @@
-.leaderboard-container{
-  width: 100%;
+.leaderboard-container {
+    width: 100%;
 }
 
 .leaderboard {
     padding: 1rem;
-    width:100%
-  }
-  
-  .leaderboard h1 {
+    width: 100%;
+}
+
+.leaderboard h1 {
     text-align: center;
     border-bottom: solid 0.2rem var(--primary-color);
     text-align: left;
-  }
-  
-  .leaderboard-list {
+}
+
+.leaderboard-list {
     list-style: none;
     padding: 0;
-  }
-  
-  .leaderboard-list li {
+}
+
+.leaderboard-list li {
     display: flex;
     justify-content: space-between;
     padding: 0.5rem 1rem;
     border-bottom: 0.0625rem solid #ddd;
-  }
+}
 
-  .player-position{
+.player-position {
     margin-right: 1rem;
     font-weight: bold;
+}
 
-  }
-  
-  .player-name {
+.player-name {
     flex: 1;
     font-weight: 600;
-  }
-  
-  .player-score {
+}
+
+.player-score {
     margin-left: 2rem;
     font-weight: 600;
     color: var(--primary-color);
-  }
-  
+}
 
 .leaderboard select {
     padding: 0.5rem;
     border: 0.0625rem solid #ccc;
     flex-grow: 1;
     border-radius: 0.2rem;
-    width: 50%; 
-    max-width: 100%; 
+    width: 50%;
+    max-width: 100%;
     min-width: 10rem;
     flex: 1;
-  }
-  
-  .leaderboard input[type="text"] {
+}
+
+.leaderboard input[type='text'] {
     flex-grow: 1;
     border: 0.0625rem solid #ccc;
     border-radius: 0.5rem;
-  }
+}
 
-  #searchInput{
+#searchInput {
     padding: 0.5rem;
     flex: 2;
     min-width: 10rem;
-  }
-  
-  .leaderboard-list {
+}
+
+.leaderboard-list {
     list-style: none;
     padding: 0;
-  }
-  
-  .leaderboard-list li {
+}
+
+.leaderboard-list li {
     display: flex;
     justify-content: space-between;
     padding: 0.5rem 1rem;
     border-bottom: 0.0625rem solid #ddd;
-  }
-  
-  .player-name {
-    flex: 1;
-  }
-  
-  .player-score {
-    margin-left: 2rem;
-  }
+}
 
- 
-  
+.player-name {
+    flex: 1;
+}
+
+.player-score {
+    margin-left: 2rem;
+}

@@ -1,4 +1,4 @@
-function attempts (){
+function attempts() {
     return `
     <main>
         <section>
@@ -12,7 +12,7 @@ function attempts (){
         </section>
         <attempts-table></attempts-table>
     </main>
-    `
+    `;
 }
 
 export default attempts;

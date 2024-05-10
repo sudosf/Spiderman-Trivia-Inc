@@ -2,22 +2,21 @@ import { Icons, Links, User } from '../common/constants.js';
 
 class Header extends HTMLElement {
     connectedCallback() {
-        const links =
-            User.signedIn === 'true'
-                ? ` <a href="leaderboard">
-                        <img class="icon" src=${Icons.leaderboard} alt="theme-toggler" />
+        const links = User.signedIn
+            ? ` <a href="leaderboard">
+                        <img class="icon clickable-spider" src=${Icons.leaderboard} alt="theme-toggler" />
                         Leaderboard
                     </a>
                     <a href="attempts">
-                        <img class="icon" src=${Icons.tracking} alt="theme-toggler" />
+                        <img class="icon clickable-spider" src=${Icons.tracking} alt="theme-toggler" />
                         My attempts
                     </a>
                     <a href="logout">
-                        <img class="icon" src=${Icons.signOut} alt="theme-toggler" />
+                        <img class="icon clickable-spider" src=${Icons.signOut} alt="theme-toggler" />
                         Sign out
                     </a>`
-                : `<a href="${Links.serverBaseURL}/auth/github">
-                        <img class="icon" src=${Icons.signIn} alt="theme-toggler" />
+            : `<a href="${Links.serverBaseURL}/auth/github">
+                        <img class="icon clickable-spider" src=${Icons.signIn} alt="theme-toggler" />
                         Sign In
                     </a>
                    `;
@@ -34,14 +33,14 @@ class Header extends HTMLElement {
                         <h6 class="dropdown-name">Hello, ${User.username}</h6>
                         <div class="dropdown-links">
                             <a href="/">
-                                <img class="icon" src=${Icons.home} alt="theme-toggler" />
+                                <img class="icon clickable-spider" src=${Icons.home} alt="theme-toggler" />
                                 Home
                             </a>
-                            <a id="theme-toggle-btn"> 
-                                    <img class="sun" src=${Icons.sun} alt="theme-toggler" />
-                                    <img class="moon" src=${Icons.moon} alt="theme-toggler" />
+                            <button id="theme-toggle-btn"> 
+                                    <img class="sun clickable-spider" src=${Icons.sun} alt="theme-toggler" />
+                                    <img class="moon clickable-spider" src=${Icons.moon} alt="theme-toggler" />
                                     <span>Color Theme</span>
-                                </a>
+                            </button>
                             ${links}
                         </div>
                     </div>
