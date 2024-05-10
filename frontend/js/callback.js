@@ -1,5 +1,3 @@
-import { saveToLocalStorage } from '../common/utils.js';
-
 window.onload = function () {
     // Get the full fragment after '#'
     const tokenFragment = window.location.hash.slice(1); // removes the '#' character
@@ -11,9 +9,9 @@ window.onload = function () {
         const messageElement = document.getElementById('message');
 
         if (token && username) {
-            saveToLocalStorage('authToken', token);
-            saveToLocalStorage('username', username);
-            saveToLocalStorage('signedIn', true);
+            localStorage.setItem('authToken', JSON.stringify(token));
+            localStorage.setItem('username', JSON.stringify(username));
+            localStorage.setItem('signedIn', JSON.stringify(true));
             messageElement.innerText =
                 'Authentication successful. you can close this tab if you are not redirected to home.';
 
