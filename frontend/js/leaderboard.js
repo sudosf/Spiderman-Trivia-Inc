@@ -6,7 +6,8 @@ document.addEventListener('click', (event) => {
     if (
         event.target.tagName.toLowerCase() === 'img' ||
         event.target.tagName.toLowerCase() === 'p' ||
-        event.target.tagName.toLowerCase() === 'a'
+        event.target.tagName.toLowerCase() === 'a' ||
+        event.target.tagName.toLowerCase() === 'button'
     ) {
         const parentElement = event.target.parentElement;
 
