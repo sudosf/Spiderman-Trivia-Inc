@@ -23,6 +23,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 const rootElement = document.querySelector(':root');
 const modeToggleBtn = document.getElementById('theme-toggle-btn');
+const usermenuAvatar = document.getElementById('usermenu-avatar');
+const userMenu = document.getElementById('usermenu');
 
 modeToggleBtn.addEventListener('click', () => {
     rootElement.classList.toggle('dark-mode');
@@ -31,6 +33,12 @@ modeToggleBtn.addEventListener('click', () => {
 
     saveToLocalStorage('isDarkMode', !isCurrentDarkMode);
 });
+
+usermenuAvatar.addEventListener('click',()=>{
+    const isUserMenuHidden = userMenu.classList.contains('hide-menu');
+    toggleUserMenu(isUserMenuHidden);
+    
+})
 
 // Check if dark mode is preferred by the user
 function isDarkModePreferred() {
@@ -59,4 +67,15 @@ if ('serviceWorker' in navigator) {
         });
 } else {
     console.log('Service Worker Not supported');
+}
+
+
+function toggleUserMenu(isUserMenuHidden) {
+    if (isUserMenuHidden) {
+        userMenu.classList.remove('hide-menu');
+        userMenu.classList.add('show-menu');
+    } else {
+        userMenu.classList.remove('show-menu');
+        userMenu.classList.add('hide-menu');
+    }
 }
