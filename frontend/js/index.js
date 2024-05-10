@@ -36,7 +36,6 @@ modeToggleBtn.addEventListener('click', () => {
 
 usermenuAvatar.addEventListener('click',()=>{
     const isUserMenuHidden = userMenu.classList.contains('hide-menu');
-    console.log(isUserMenuHidden)
     toggleUserMenu(isUserMenuHidden);
     
 })
