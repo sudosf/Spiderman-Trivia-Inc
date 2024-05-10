@@ -231,13 +231,14 @@ function clearSelectedButtons() {
 function saveAttempt() {
     const body = {
         subject_id: getSubjectId(),
-        score: appData.getScore(),
+        score: JSON.stringify(appData.score),
     };
+
     _apiCall
         .makePostRequest('attempts', body)
         .then((response) => {})
         .catch((err) => {
-            alert(`An error occured while saving attempt\n${err}`);
+            console.log(`An error occured while saving attempt\n${err}`);
         });
 }
 
