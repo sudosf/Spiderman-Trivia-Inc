@@ -28,8 +28,8 @@ class Header extends HTMLElement {
                 </a>
 
                 <div class="dropdown clickable">
-                    <img src=${User.profilePictureUrl} alt="Avatar" class="avatar">
-                    <div class="dropdown-content">
+                    <img src=${User.profilePictureUrl} alt="Avatar" class="avatar" id="usermenu-avatar">
+                    <div class="dropdown-content hide-menu" id="usermenu">
                         <h6 class="dropdown-name">Hello, ${User.username}</h6>
                         <div class="dropdown-links">
                             <a href="/">
