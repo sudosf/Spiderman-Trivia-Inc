@@ -1,4 +1,4 @@
-function Home(){
+function Home() {
     return `        
     <main>
         <section>
@@ -6,7 +6,7 @@ function Home(){
             <home-text></home-text>
         </section>
         <home-content></home-content>
-    </main>`
+    </main>`;
 }
 
 export default Home;

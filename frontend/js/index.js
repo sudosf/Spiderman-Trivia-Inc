@@ -12,7 +12,18 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     toggleDarkMode(isDarkMode);
+
+    // handle back navigation
+    window.history.pushState(null, null, window.location.href);
+    window.onpopstate = function () {
+        window.history.pushState(null, null, window.location.href);
+    };
 });
+
+// Warn users leaving the current page
+window.onbeforeunload = function () {
+    return 'Your work will be lost.';
+};
 
 const rootElement = document.querySelector(':root');
 const modeToggleBtn = document.getElementById('theme-toggle-btn');

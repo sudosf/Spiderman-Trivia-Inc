@@ -1,7 +1,5 @@
-function leaderboard(){
-
-
-    return` <article class="p-1 leaderboard-container flex" >
+function leaderboard() {
+    return ` <article class="p-1 leaderboard-container flex" >
                 <div class="leaderboard flex flex-col gap-2 items-start flex-1">
                 <h1 class="page-title w-full">Leaderboard</h1>
 
@@ -20,7 +18,7 @@ function leaderboard(){
                     <!-- Leaderboard items will be populated here -->
                 </ol>
                 </div>
-            </article>`
+            </article>`;
 }
 
 export default leaderboard;

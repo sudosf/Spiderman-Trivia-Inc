@@ -1,18 +1,14 @@
-import { Icons } from '../common/constants.js';
-
 class Button extends HTMLElement {
     connectedCallback() {
         const iconUrl = this.getAttribute('icon');
-        const option = this.getAttribute('option');
-        const isCorrectAttribute = Boolean(this.getAttribute('isCorrect'));
 
         const submitBtn = this.getAttribute('isSubmit') ? 'btn-submit' : '';
         const leftIconHTML = this.getAttribute('isSubmit')
             ? `<img src="${iconUrl}" alt="Icon"/>`
             : `<p class="options-num">${iconUrl}</p>`;
-            
+
         this.innerHTML = `
-        <button class="btn-options ${submitBtn}">
+        <button class="btn-options clickable-spider ${submitBtn}">
             <aside class="btn-left">
                 ${leftIconHTML}
                 <p></p>

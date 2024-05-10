@@ -42,7 +42,9 @@
     --accent-color: #a5cad7;
     --card-bg-color: #202528;
 
-    .spidey{
+    animation: fadeIn 0.5s ease forwards;
+
+    .spidey {
         background-image: url("../assets/images/spiderman-dark.png");
     }
 
@@ -76,6 +78,8 @@ body {
     font-weight: 400;
     font-style: normal;
     text-decoration: none;
+    transition: font-size 0.3s;
+    transition: background-color 0.5s ease; /* Smooth transition */
 }
 
 h1 {
@@ -84,12 +88,10 @@ h1 {
 }
 
 h2 {
-    /* font-size: 3rem; */
     font-weight: 600;
 } /*classic bold*/
 
 h3 {
-    /* font-size: 2.5rem; */
     font-weight: 500;
 }
 
@@ -103,26 +105,8 @@ p {
 
 a {
     text-decoration: none;
-}
-
-button,
-.btn {
-    display: inline-flex;
-    align-items: center;
     font-size: var(--step-0);
-    line-height: 1.5rem;
-    border: none;
-    border-radius: var(--btn-border-radius);
-    margin: auto 0;
-    cursor: pointer;
-    color: var(--text-color);
-    background-color: var(--card-bg-color);
-    text-decoration: none;
-}
-
-button:hover,
-.btn:hover {
-    background-color: var(--accent-color);
+    font-weight: 500;
 }
 
 main,
@@ -153,6 +137,7 @@ main {
     flex-wrap: wrap;
     justify-content: space-around;
     align-content: baseline;
+    container-type: inline-size;
     flex: 1;
     gap: 2rem;
 
@@ -180,6 +165,10 @@ footer {
     cursor: pointer;
 }
 
+.clickable-spider {
+    cursor: url('../assets/icons/logo.svg'), auto;
+}
+
 /* Icons */
 .icon {
     filter: invert(100%);
@@ -194,6 +183,26 @@ footer {
 }
 
 /* Button styles */
+button,
+.btn {
+    display: inline-flex;
+    align-items: center;
+    font-size: var(--step-0);
+    line-height: 1.5rem;
+    border: none;
+    border-radius: var(--btn-border-radius);
+    margin: auto 0;
+    cursor: pointer;
+    color: var(--text-color);
+    background-color: var(--card-bg-color);
+    text-decoration: none;
+}
+
+button:hover,
+.btn:hover {
+    background-color: var(--accent-color);
+}
+
 .btn-sign-in {
     padding: 1rem 12rem 1rem 1rem;
     width: min(30vw, 20rem);
@@ -201,18 +210,14 @@ footer {
     gap: 1rem;
 }
 
-.btn-submit {
-    color: var(--light-color);
-    background-color: var(--primary-color);
-}
-
 .btn-options {
     justify-content: space-between;
     align-items: center;
-    gap: 5rem;
+
     border-radius: var(--btn-border-radius);
     padding: 1rem 1.5rem;
     width: 100%;
+    min-width: 40vw;
     text-wrap: wrap;
 
     transition:
@@ -223,14 +228,12 @@ footer {
 .btn-options-correct {
     border: var(--btn-border-size) solid var(--text-correct-color);
     box-shadow: 0 0 1em var(--text-correct-color);
-    transform: scale(1.1);
     border-radius: var(--btn-border-radius);
 }
 
 .btn-options-wrong {
     border: var(--btn-border-size) solid var(--primary-color);
     box-shadow: 0 0 1em var(--primary-color);
-    transform: scale(1.05);
 }
 
 .btn-options:hover {
@@ -239,11 +242,6 @@ footer {
     transform: scale(1.05);
 }
 
-.btn-options-clicked {
-    background-color: var(--accent-color);
-    box-shadow: 0 0 1em var(--accent-color);
-    transform: scale(1.05);
-}
 
 .btn-right img {
     fill: var(--text-correct-color);
@@ -254,6 +252,22 @@ footer {
     align-items: center;
     gap: 1rem;
 }
+
+.btn-submit {
+    color: var(--light-color);
+    background-color: var(--primary-color);
+}
+
+.btn-submit:hover {
+    background-color: var(--primary-color);
+}
+
+.btn-options-clicked {
+    background-color: var(--accent-color);
+    box-shadow: 0 0 1em var(--accent-color);
+    transform: scale(1.05);
+}
+
 /* END: Button styles */
 
 progress {
@@ -285,39 +299,33 @@ progress::-webkit-progress-bar {
 .subject-container {
     display: flex;
     flex-direction: column;
+    height: 100%;
     box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    text-decoration: none;
-}
 
-.subject-image {
-    width: 100%;
-    height: auto;
-    display: block;
-}
+    .subject-image {
+        width: 100%;
+        height: auto;
+    }
 
-.subject-name {
-    color: var(--text-color);
-    padding: 0.9rem;
-    background-color: var(--card-bg-color);
-    width: 100%;
+    .subject-name {
+        color: var(--text-color);
+        background-color: var(--card-bg-color);
+        padding: 0.8rem;
+        height: 100%;
+    }
 }
 
 .subject-container:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 1em var(--primary-color);
+    box-shadow: 0 0 0.5rem var(--primary-color);
 }
 
 .subjects-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Two columns */
-    gap: 1.5rem;
-    text-decoration: none;
+    gap: 1rem;
+    grid-template-columns: repeat(2, 0.7fr); /* Two columns */
 }
 
-.subject-component {
-    width: 100%; /* Full width of the grid column */
-}
 
 /* The container <div> - needed to position the dropdown content */
 .dropdown {
@@ -335,6 +343,7 @@ progress::-webkit-progress-bar {
     box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
+
 .dropdown-name {
     padding: 0.75rem 1rem;
 }
@@ -343,7 +352,15 @@ progress::-webkit-progress-bar {
     display: flex;
     flex-direction: column;
 }
-.dropdown-links a {
+
+#theme-toggle-btn {
+    border: none;
+    border-radius: 0;
+    color: var(--text-color);
+}
+
+.dropdown-links a,
+#theme-toggle-btn {
     color: var(--text-color);
     text-decoration: none;
     padding: 0.75rem 1rem;
@@ -352,7 +369,8 @@ progress::-webkit-progress-bar {
     gap: 0.5rem;
 }
 
-.dropdown-content a:hover {
+.dropdown-content a:hover,
+#theme-toggle-btn:hover {
     background-color: var(--accent-color);
     box-shadow: 0 0 1em var(--accent-color);
 }
@@ -371,12 +389,14 @@ progress::-webkit-progress-bar {
 
 .attempts-table {
     border-collapse: collapse;
-    width: 100%;
+    width: 90%;
 }
+
 .attempts-table td,
 .attempts-table th {
     border: 0.063rem solid var(--card-bg-color);
     padding: 1.25rem;
+    text-wrap: wrap;
 }
 
 .attempts-table tr:nth-child(even) {
@@ -390,12 +410,15 @@ progress::-webkit-progress-bar {
     background-color: var(--primary-color);
     color: var(--light-color);
 }
+
 .cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(18.75rem, 1fr));
     gap: 1.5rem;
     margin-top: 2.5rem;
+    width: 90%;
 }
+
 .card {
     box-shadow: 0 0.25rem 0.5rem 0 rgba(0, 0, 0, 0.2);
     padding: 1.875rem;
@@ -403,16 +426,14 @@ progress::-webkit-progress-bar {
     gap: 1.25rem;
     background-color: var(--card-bg-color);
     justify-content: space-between;
-}
-.card:hover {
-    box-shadow: 0 0 1em var(--accent-color);
+    width: 90%;
 }
 
-#subject-name{
+#subject-name {
     color: var(--primary-color);
   }
 
-.btn-complete{
+.btn-complete {
     justify-content: space-between;
     align-items: center;
     gap: 5rem;
@@ -424,7 +445,7 @@ progress::-webkit-progress-bar {
     font-size: var(--step-0);
 }
 
-.complete-link{
+.complete-link {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -437,4 +458,14 @@ progress::-webkit-progress-bar {
     color: var(--text-color);
     background-color: var(--primary-color);
     text-decoration: none;
-}   
+}  
+
+/* animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

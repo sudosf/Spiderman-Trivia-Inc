@@ -1,7 +1,6 @@
-import { appData } from "../common/appData.js";
+import { appData } from '../common/appData.js';
 
 class QuizComplete extends HTMLElement {
-
     connectedCallback() {
         const scoreType = appData.getStubjectName();
         const score = appData.getScore();

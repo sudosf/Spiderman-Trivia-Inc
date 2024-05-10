@@ -1,5 +1,5 @@
-function Quiz(){
-    return`
+function Quiz() {
+    return `
     <main  class="container main-container">
         <section class="questions-container">
             <p>
@@ -16,7 +16,7 @@ function Quiz(){
             <options-btn icon="D" id="opt-4"></options-btn>
             <options-btn icon="assets/icons/arrow-right.svg" option="Submit answer" isSubmit="true" id="submit"></options-btn>
         </section>
-    </main>`
+    </main>`;
 }
 
 export default Quiz;
