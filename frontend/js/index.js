@@ -20,10 +20,6 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 });
 
-// Warn users leaving the current page
-window.onbeforeunload = function () {
-    return 'Your work will be lost.';
-};
 
 const rootElement = document.querySelector(':root');
 const modeToggleBtn = document.getElementById('theme-toggle-btn');
@@ -56,11 +52,11 @@ if ('serviceWorker' in navigator) {
     navigator.serviceWorker
         .register('service_worker.js')
         .then((registration) => {
-            console.log('SW Registered!');
+            console.log('Service Worker Registered!');
         })
         .catch((error) => {
-            console.log('SW Registration Failed');
+            console.log('Service Worker Registration Failed');
         });
 } else {
-    console.log('Not supported');
+    console.log('Service Worker Not supported');
 }
